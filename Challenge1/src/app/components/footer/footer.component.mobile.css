@@ -1,0 +1,25 @@
+@media (max-width: 375px) {
+  #responsive {
+    flex-direction: column;
+  }
+
+  #responsive > div {
+    align-items: center;
+  }
+
+  #responsive ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #responsive img {
+    margin-top: 80px;
+    margin-bottom: 20px;
+  }
+
+  #responsive div:last-child {
+    margin-bottom: 50px;
+  }
+}

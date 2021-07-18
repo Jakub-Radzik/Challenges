@@ -1,0 +1,49 @@
+footer{
+  background: hsl(240, 10%, 16%);
+  color: hsl(240, 2%, 79%);
+  min-height: 300px;
+  border-radius: 0 100px 0 0;
+  display: flex;
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+#responsive{
+  max-width: 1024px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+#responsive h4{
+  font-weight: 600;
+}
+
+#responsive > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#responsive > div > ul {
+  list-style-type: none;
+}
+
+#responsive li {
+  margin: 8px 0;
+  font-weight: 500;
+}
+
+#responsive li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#responsive img{
+  margin-top: 15px;
+}
+
+

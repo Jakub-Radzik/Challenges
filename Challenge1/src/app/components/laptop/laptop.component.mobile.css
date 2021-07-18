@@ -1,0 +1,32 @@
+@media (max-width: 1000px) {
+  #parent {
+    margin: 30px 0;
+  }
+
+  #responsive {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #responsive > div {
+    transform: translate(0);
+  }
+
+  #laptop {
+  }
+
+  #desc {
+  }
+
+  #desc > div {
+    text-align: center;
+  }
+
+  #desc > div > h1 {
+  }
+
+  #desc > div > p {
+    width: auto;
+  }
+
+}

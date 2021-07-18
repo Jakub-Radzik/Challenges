@@ -1,0 +1,43 @@
+#parent {
+  width: 100%;
+  font-family: 'Overpass', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: hsl(207, 13%, 34%);
+  overflow: hidden;
+}
+
+#responsive {
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+#responsive > div {
+  transform: translate(-250px);
+}
+
+#laptop {
+}
+
+#desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#desc > div {
+
+}
+
+#desc > div > h1 {
+  font-weight: 600;
+  color: hsl(208, 49%, 24%);;
+}
+
+#desc > div > p {
+  width: 500px;
+  line-height: 25px;
+}

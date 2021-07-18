@@ -1,0 +1,16 @@
+/*@import url('https://fonts.google.com/specimen/Overpass?preview.text_type=custom');*/
+/*@import url('https://fonts.google.com/specimen/Ubuntu?preview.text_type=custom');*/
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300&display=swap');
+/* You can add global styles to this file, and also import other style files */
+body, h1 {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  padding-inline-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+

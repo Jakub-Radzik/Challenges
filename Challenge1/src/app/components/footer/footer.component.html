@@ -1,0 +1,14 @@
+<footer>
+  <div id="responsive">
+    <div>
+      <img src="assets/images/logo.svg" alt="blogr"/>
+    </div>
+
+    <div *ngFor="let elem of linkStruct">
+      <h4>{{elem.title}}</h4>
+      <ul>
+        <li *ngFor="let item of elem.links">{{item}}</li>
+      </ul>
+    </div>
+  </div>
+</footer>
