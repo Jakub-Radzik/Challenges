@@ -1,0 +1,39 @@
+#parent{
+  height: 500px;
+  margin: 300px 0;
+  font-weight: 300;
+  font-family: Overpass,sans-serif;
+  color: hsl(207, 13%, 34%);
+}
+
+#responsive{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(230px);
+  height: 500px;
+}
+
+img{
+
+}
+
+#desc{
+  width: 500px;
+  margin-right: 50px;
+}
+
+#desc > div {
+}
+
+h1{
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+p{
+  line-height: 25px;
+  margin-bottom: 0;
+}
+

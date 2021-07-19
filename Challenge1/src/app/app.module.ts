@@ -7,6 +7,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LaptopComponent } from './components/laptop/laptop.component';
 import {AngularResizedEventModule} from "angular-resize-event";
 import { PhonesComponent } from './components/phones/phones.component';
+import { EditorComponent } from './components/editor/editor.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PhonesComponent } from './components/phones/phones.component';
     NavbarComponent,
     FooterComponent,
     LaptopComponent,
-    PhonesComponent
+    PhonesComponent,
+    EditorComponent
   ],
   imports: [
     BrowserModule,
