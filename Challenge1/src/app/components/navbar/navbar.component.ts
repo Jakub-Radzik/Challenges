@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  public startForFree: string = "Start for Free";
+  public learnMore: string = "Learn More";
+
   constructor() { }
 
   ngOnInit(): void {

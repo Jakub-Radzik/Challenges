@@ -8,6 +8,10 @@ import { LaptopComponent } from './components/laptop/laptop.component';
 import {AngularResizedEventModule} from "angular-resize-event";
 import { PhonesComponent } from './components/phones/phones.component';
 import { EditorComponent } from './components/editor/editor.component';
+import { MobileMenuComponent } from './components/navbar/mobile-menu/mobile-menu.component';
+import { DesktopMenuComponent } from './components/navbar/desktop-menu/desktop-menu.component';
+import { WhiteButtonComponent } from './components/buttons/white-button/white-button.component';
+import { RedButtonComponent } from './components/buttons/red-button/red-button.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { EditorComponent } from './components/editor/editor.component';
     FooterComponent,
     LaptopComponent,
     PhonesComponent,
-    EditorComponent
+    EditorComponent,
+    MobileMenuComponent,
+    DesktopMenuComponent,
+    WhiteButtonComponent,
+    RedButtonComponent
   ],
   imports: [
     BrowserModule,
