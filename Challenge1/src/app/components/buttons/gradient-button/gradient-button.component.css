@@ -1,0 +1,14 @@
+input{
+  font-family: Overpass, SansSerif, serif;
+  height: 50px;
+  width: 130px;
+  border-radius: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  transition-duration: 0.2s;
+
+  color: hsl(0, 0%, 100%);
+  background: hsl(13, 100%, 72%);
+  background: linear-gradient(90deg, hsl(13, 100%, 72%) 0%, hsl(353, 100%, 62%) 80%, hsl(353, 100%, 62%) 100%);
+  border: none;
+}

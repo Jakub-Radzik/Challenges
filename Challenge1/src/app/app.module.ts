@@ -12,6 +12,9 @@ import { MobileMenuComponent } from './components/navbar/mobile-menu/mobile-menu
 import { DesktopMenuComponent } from './components/navbar/desktop-menu/desktop-menu.component';
 import { WhiteButtonComponent } from './components/buttons/white-button/white-button.component';
 import { RedButtonComponent } from './components/buttons/red-button/red-button.component';
+import { MenuModalComponent } from './components/navbar/mobile-menu/menu-modal/menu-modal.component';
+import { WhiteBlackButtonComponent } from './components/buttons/white-black-button/white-black-button.component';
+import { GradientButtonComponent } from './components/buttons/gradient-button/gradient-button.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { RedButtonComponent } from './components/buttons/red-button/red-button.c
     MobileMenuComponent,
     DesktopMenuComponent,
     WhiteButtonComponent,
-    RedButtonComponent
+    RedButtonComponent,
+    MenuModalComponent,
+    WhiteBlackButtonComponent,
+    GradientButtonComponent
   ],
   imports: [
     BrowserModule,

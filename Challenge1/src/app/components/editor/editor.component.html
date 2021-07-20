@@ -1,4 +1,4 @@
-<div id="parent">
+<div (resized)="onResized($event)" id="parent">
   <div id="responsive">
     <div id="desc">
       <div>
@@ -21,7 +21,9 @@
         </p>
       </div>
     </div>
-    <img [hidden]="mobile" src="assets/images/illustration-editor-desktop.svg" alt="desktop" >
-    <img [hidden]="!mobile" src="assets/images/illustration-editor-mobile.svg" alt="mobile">
+    <div>
+      <img [hidden]="!mobile" src="assets/images/illustration-editor-mobile.svg" alt="mobile">
+      <img [hidden]="mobile" src="assets/images/illustration-editor-desktop.svg" alt="desktop">
+    </div>
   </div>
 </div>

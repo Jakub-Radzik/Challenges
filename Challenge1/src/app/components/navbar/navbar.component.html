@@ -1,12 +1,8 @@
 <header>
-  <div id="bg-image">
+  <div id="bg-image" (resized)="onResized($event)" >
 
-<!--    <div id="menu" style="border: 1px solid black; width: 100%; height: 100px; text-align: center;">-->
-<!--      placeholder-->
-<!--    </div>-->
-
-<!--    <app-mobile-menu></app-mobile-menu>-->
-    <app-desktop-menu></app-desktop-menu>
+    <app-mobile-menu [hidden]="!mobile"></app-mobile-menu>
+    <app-desktop-menu  [hidden]="mobile"></app-desktop-menu>
 
     <div id="intro">
       <h1>A modern publishing platform</h1>

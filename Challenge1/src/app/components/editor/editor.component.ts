@@ -13,12 +13,10 @@ export class EditorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.mobile = window.screen.width <= 700;
-    console.log(this.mobile);
+    this.mobile = window.screen.width <= 1000;
   }
 
   onResized(event: ResizedEvent) {
-    this.mobile = event.newWidth <= 700;
-    console.log(this.mobile);
+    this.mobile = event.newWidth <= 1000;
   }
 }
