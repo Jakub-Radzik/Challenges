@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ResizedEvent} from "angular-resize-event";
 
 @Component({
@@ -9,10 +9,8 @@ import {ResizedEvent} from "angular-resize-event";
 export class LaptopComponent implements OnInit {
   public mobile: boolean = false;
 
-  @Input()
-  responsive = ""
-
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.mobile = window.screen.width <= 1000;

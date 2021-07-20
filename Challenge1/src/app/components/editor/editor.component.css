@@ -11,17 +11,16 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  transform: translateX(230px);
   height: 500px;
 }
 
 img{
-
+  transform: translateX(230px);
 }
 
 #desc{
   width: 500px;
-  margin-right: 50px;
+  transform: translateX(50px);
 }
 
 #desc > div {

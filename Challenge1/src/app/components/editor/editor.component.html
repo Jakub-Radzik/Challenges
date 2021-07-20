@@ -21,6 +21,7 @@
         </p>
       </div>
     </div>
-    <img src="assets/images/illustration-editor-desktop.svg" alt="desktop">
+    <img [hidden]="mobile" src="assets/images/illustration-editor-desktop.svg" alt="desktop" >
+    <img [hidden]="!mobile" src="assets/images/illustration-editor-mobile.svg" alt="mobile">
   </div>
 </div>
