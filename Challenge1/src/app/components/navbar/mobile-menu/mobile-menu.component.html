@@ -1,7 +1,7 @@
-<nav id="mobile">
+<nav id="mobile" (resized)="onResized($event)">
   <img src="assets/images/logo.svg" alt="logo">
-  <img [hidden]="close_menu" (click)="close_menu = !close_menu" src="assets/images/icon-hamburger.svg" alt="hamburger" style="margin-right: 20px;">
-  <img [hidden]="!close_menu" (click)="close_menu = !close_menu" src="assets/images/icon-close.svg" alt="close" style="margin-right: 20px;">
+  <img [hidden]="show_menu" (click)="show_menu = !show_menu" src="assets/images/icon-hamburger.svg" alt="hamburger" style="margin-right: 20px;">
+  <img [hidden]="!show_menu" (click)="show_menu = !show_menu" src="assets/images/icon-close.svg" alt="close" style="margin-right: 20px;">
 
 </nav>
-<app-menu-modal [hidden]="!close_menu"></app-menu-modal>
+<app-menu-modal [hidden]="!show_menu"></app-menu-modal>
