@@ -1,0 +1,15 @@
+@media (max-width: 900px) {
+    body{
+        height: auto;
+    }
+
+    #container{
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+    }
+
+    #container > div:first-child, #container > div:last-child {
+        border-radius: 0;
+    }
+}

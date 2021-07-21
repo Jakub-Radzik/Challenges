@@ -23,7 +23,6 @@ Very light gray (background, headings, buttons): hsl(0, 0%, 95%)
 ## Typography
 
 ### Body Copy
-
 - Font size: 15px
 
 ### Font

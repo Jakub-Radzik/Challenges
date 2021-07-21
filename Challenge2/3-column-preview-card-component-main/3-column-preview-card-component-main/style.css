@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+    font-size: 15px;
+}
+
+#container {
+    width: 90%;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lexend Deca', sans-serif;
+    background: hsl(0, 0%, 95%);
+}
+
+#container > div {
+    height: 300px;
+    width: 200px;
+    padding: 50px;
+    background: hsl(184, 100%, 22%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#container > div:first-child {
+    border-radius: 10px 0 0 10px;
+    background: hsl(31, 77%, 52%);
+}
+
+#container > div:last-child {
+    border-radius: 0 10px 10px 0;
+    background: hsl(179, 100%, 13%);
+}
+
+h1 {
+    font-family: 'Big Shoulders Display', cursive;
+    color: hsl(0, 0%, 95%);
+}
+
+p {
+    color: hsla(0, 0%, 100%, 0.75);
+}
+
+input {
+    font-family: 'Lexend Deca', sans-serif;
+    color: hsl(184, 100%, 22%);
+    background: hsl(0, 0%, 95%);
+    border: none;
+    height: 30px;
+    border-radius: 30px;
+    width: 140px;
+    transition-duration: 0.2s;
+}
+
+#sedans > input {
+    color: hsl(31, 77%, 52%);
+}
+
+#sedans > input:hover {
+    background: hsl(31, 77%, 52%);
+    color: hsl(0, 0%, 95%);
+}
+
+/*-----------------------------------------------------------*/
+#suvs > input {
+    color: hsl(184, 100%, 22%);
+}
+
+#suvs > input:hover {
+    background: hsl(184, 100%, 22%);
+    color: hsl(0, 0%, 95%);
+}
+
+/*-----------------------------------------------------------*/
+#luxury > input {
+    color: hsl(179, 100%, 13%);
+}
+
+#luxury > input:hover {
+    background: hsl(179, 100%, 13%);
+    color: hsl(0, 0%, 95%);
+}
+
+input:hover {
+    border: 2px solid hsl(0, 0%, 95%);
+    cursor: pointer;
+}
