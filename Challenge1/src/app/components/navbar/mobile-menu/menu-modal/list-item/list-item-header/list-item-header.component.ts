@@ -10,11 +10,13 @@ export class ListItemHeaderComponent implements OnInit {
   @Input()
   public header: string = ""
 
+  @Input()
+  public dark: boolean = true;
+
   @Output()
   close = new EventEmitter<boolean>();
 
   public isClosed: boolean = true;
-
 
   openClose(event: any, value: boolean){
     this.isClosed = !value;

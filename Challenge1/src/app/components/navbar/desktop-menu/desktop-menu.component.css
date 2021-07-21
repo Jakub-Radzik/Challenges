@@ -2,13 +2,10 @@ li::after{
   content: url("../../../../assets/images/icon-arrow-light.svg");
 }
 
-/*li:active::after{*/
-/*  transform: rotate(180deg);*/
-/*}*/
-/* TODO: make <li> as a separate comoponent with arrow state*/
-
 #desktop{
   width: 100%;
+  max-width: 1600px;
+  margin: auto;
   padding-top: 10px;
   display: flex;
   flex-direction: row;
@@ -21,7 +18,6 @@ li::after{
   justify-content: space-between;
   align-items: center;
   margin-left: 20px;
-  /*width: 300px;*/
 }
 
 #top-menu{

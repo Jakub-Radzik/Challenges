@@ -16,3 +16,7 @@ li{
   color: hsl(207, 13%, 34%);
 }
 
+li:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}

@@ -7,7 +7,7 @@ import {ResizedEvent} from "angular-resize-event";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  public mobileBreakPoint = 900;
+  public mobileBreakPoint = 1000;
   public mobile: boolean = false;
 
   public startForFree: string = "Start for Free";

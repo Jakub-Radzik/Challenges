@@ -1,0 +1,4 @@
+<div id="menu-item-desktop">
+  <app-list-item-header [dark]="false" (close)="changeOpenCloseState($event)" [header]="listElement.header"></app-list-item-header>
+  <app-list [hidden]="isClosed" [links]="listElement.items" style="position: absolute; width: 130px;"></app-list>
+</div>

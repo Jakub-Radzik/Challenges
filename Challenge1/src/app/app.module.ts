@@ -18,6 +18,7 @@ import { GradientButtonComponent } from './components/buttons/gradient-button/gr
 import { ListItemComponent } from './components/navbar/mobile-menu/menu-modal/list-item/list-item.component';
 import { ListItemHeaderComponent } from './components/navbar/mobile-menu/menu-modal/list-item/list-item-header/list-item-header.component';
 import { ListComponent } from './components/navbar/mobile-menu/menu-modal/list-item/list/list.component';
+import { MenuItemDesktopComponent } from './components/navbar/desktop-menu/menu-item-desktop/menu-item-desktop.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ListComponent } from './components/navbar/mobile-menu/menu-modal/list-i
     GradientButtonComponent,
     ListItemComponent,
     ListItemHeaderComponent,
-    ListComponent
+    ListComponent,
+    MenuItemDesktopComponent
   ],
   imports: [
     BrowserModule,
