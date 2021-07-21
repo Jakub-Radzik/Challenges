@@ -1,0 +1,27 @@
+#header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-family: Overpass, serif;
+}
+
+h1{
+  font-size: 20px;
+  letter-spacing: 2px;
+  transition-duration: 0.5s;
+}
+
+img{
+  width: 20px;
+  margin-left: 10px;
+  transition-duration: 0.5s;
+}
+
+.rotated{
+  transform: rotate(180deg);
+}
+
+.showColor{
+  color: hsl(240, 9%, 61%);
+}

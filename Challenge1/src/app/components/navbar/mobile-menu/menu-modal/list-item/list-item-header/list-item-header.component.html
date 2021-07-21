@@ -1,0 +1,6 @@
+<div id="header" (click)="openClose($event, this.isClosed)">
+  <h1 [ngClass]="!this.isClosed ? 'showColor' : ''">{{header}}</h1>
+  <div>
+    <img src="assets/images/icon-arrow-dark.svg" alt="arrow" [ngClass]="!this.isClosed ? 'rotated' : ''">
+  </div>
+</div>

@@ -1,0 +1,4 @@
+<div id="list-item">
+  <app-list-item-header (close)="changeOpenCloseState($event)" [header]="listElement.header"></app-list-item-header>
+  <app-list [hidden]="isClosed" [links]="listElement.items"></app-list>
+</div>

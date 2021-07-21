@@ -1,8 +1,11 @@
 <div id="modal">
 
   <div id="drop-down">
-
+    <app-list-item [listElement]="listStructure.get('Product')"></app-list-item>
+    <app-list-item [listElement]="listStructure.get('Company')"></app-list-item>
+    <app-list-item [listElement]="listStructure.get('Connect')"></app-list-item>
   </div>
+
   <hr>
   <div id="buttons">
     <app-white-black-button [text]="login"></app-white-black-button>

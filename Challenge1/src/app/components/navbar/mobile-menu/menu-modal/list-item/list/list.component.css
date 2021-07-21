@@ -1,0 +1,18 @@
+ul{
+  list-style-type: none;
+  background: hsl(240, 7%, 94%);
+  width: 90%;
+  margin: 10px auto;
+  border-radius: 5px;
+  padding: 10px 0;
+}
+
+li{
+  font-family: Overpass, serif;
+  text-align: center;
+  font-weight: 600;
+  font-weight: 600;
+  padding: 10px 0;
+  color: hsl(207, 13%, 34%);
+}
+
