@@ -9,7 +9,7 @@ export class MenuModalComponent implements OnInit {
 
   public login: "Login" = "Login";
   public signUp: "Sign Up" = "Sign Up";
-
+  //TODO: REMOVE DUPLICATES
   public listStructure = new Map<string, any>();
 
   constructor() {

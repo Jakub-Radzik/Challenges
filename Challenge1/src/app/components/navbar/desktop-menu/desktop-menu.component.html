@@ -1,11 +1,11 @@
 <nav id="desktop">
   <div id="menu">
     <img src="assets/images/logo.svg" alt="logo">
-    <ul>
-      <li>Product</li>
-      <li>Company</li>
-      <li>Connect</li>
-    </ul>
+    <div id="top-menu">
+      <app-list-item [listElement]="listStructure.get('Product')"></app-list-item>
+      <app-list-item [listElement]="listStructure.get('Company')"></app-list-item>
+      <app-list-item [listElement]="listStructure.get('Connect')"></app-list-item>
+    </div>
   </div>
 
   <div id="buttons">

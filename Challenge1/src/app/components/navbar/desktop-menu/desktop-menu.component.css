@@ -24,17 +24,18 @@ li::after{
   /*width: 300px;*/
 }
 
-ul{
+#top-menu{
   list-style-type: none;
   display: flex;
   flex-direction: row;
   margin-left: 50px;
 }
-ul > * {
-  margin: 0 20px;
-  font-family: Ubuntu;
-  color: hsl(0, 0%, 100%);
-}
+
+/*#top-menu > * {*/
+/*  margin: 0 20px;*/
+/*  font-family: Ubuntu;*/
+/*  color: hsl(0, 0%, 100%);*/
+/*}*/
 
 app-red-button, app-white-button{
   margin-right: 20px;
