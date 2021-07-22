@@ -1,25 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from "react";
+import Header from "./Redux/Components/Nav/Header";
+
+export const darkThemeContext = React.createContext({
+    theme: 'light', toggleTheme: () => {}
+})
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const themes = {
+        light: {
+            elements: 'hsl(0, 0%, 100%)',
+            text: 'hsl(200, 15%, 8%)',
+            background: 'hsl(0, 0%, 98%)',
+            input: 'hsl(0, 0%, 52%)'
+        },
+        dark: {
+            elements: 'hsl(209, 23%, 22%)',
+            text: 'hsl(0, 0%, 100%)',
+            background: 'hsl(207, 26%, 17%)'
+        }
+    }
+
+    const [theme, setTheme] = useState({name: 'light', set: themes.light});
+
+    const toggleTheme = () => {
+        if (theme.name === 'light') {
+            setTheme({name: 'dark', set: themes.dark});
+        } else {
+            setTheme({name: 'light', set: themes.light});
+        }
+    }
+
+    return (
+        <div className="App">
+            <darkThemeContext.Provider value={{theme: theme, toggleTheme: () => toggleTheme()}}>
+                <Header/>
+            </darkThemeContext.Provider>
+        </div>
+    );
 }
 
 export default App;
