@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="style.css">
   <title>Frontend Mentor | [Challenge Name Here]</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
@@ -16,36 +15,77 @@
 </head>
 <body>
 
-  Samuel Green
-  Available to Walk
+  <div id="container">
+    <div id="phone">
+      <div id="notch">
+      </div>
 
-  That sounds great. I’d be happy with that.
+      <div id="display">
+        <div id="header">
+          <div id="left">
 
-  Could you send over some pictures of your dog, please?
+            <img src="images/right-arrow.svg" alt="arrow-left">
+            <img src="images/avatar.jpg" alt="avatar">
 
-  Here are a few pictures. She’s a happy girl!
+            <div id="person">
+              <h5>Samuel Green</h5>
+              <h6>Available to Walk</h6>
+            </div>
+          </div>
+          <img src="images/more.svg" alt="more">
+        </div>
 
-  Can you make it?
+        <div id="content">
+          <div id="msg1" class="left">
+            That sounds great. I’d be happy with that.
+          </div>
+          <div id="msg2" class="left">
+            Could you send over some pictures of your dog, please?
+          </div>
+          <div id="images">
+            <img src="images/dog-image-1.jpg" alt="dog1">
+            <img src="images/dog-image-2.jpg" alt="dog2">
+            <img src="images/dog-image-3.jpg" alt="dog3">
+          </div>
+          <div id="msg4" class="right">Here are a few pictures. She’s a happy girl!</div>
+          <div id="msg5" class="right">Can you make it?</div>
+          <div id="msg6" class="left">She looks so happy! The time we discussed works. How long shall I take her out for?</div>
+          <div id="msg7" class="left gradient">
+            <div>
+              <div class="circle"></div>
+              30 minute walk
+            </div>
+            <div>$29</div>
+          </div>
+          <div id="msg8" class="left gradient">
+            <div>
+              <div class="circle"></div>
+            1 hour walk
+          </div>
+            <div>$49</div>
+          </div>
 
-  She looks so happy! The time we discussed works. How long shall I take her out for?
+          <div id="typer">
+            <p>Type a message…</p>
+            <div>
+              <img src="images/right-arrow.svg" alt="arrow">
+            </div>
+          </div>
+        </div>
+      </div>
 
-  30 minute walk
-  $29
 
-  1 hour walk
-  $49
-
-  Type a message…
-
-  Simple booking
-
-  Stay in touch with our dog walkers through the chat interface. This makes it easy to 
-  discuss arrangements and make bookings. Once the walk has been completed you can rate 
-  your walker and book again all through the chat.
-  
+    </div>
+    <div id="desc">
+      <h1>Simple booking</h1>
+      <p>Stay in touch with our dog walkers through the chat interface. This makes it easy to
+        discuss arrangements and make bookings. Once the walk has been completed you can rate
+        your walker and book again all through the chat.</p>
+    </div>
+  </div>
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="www.jakub-radzik.ovh">Jakub Radzik</a>.
   </div>
 </body>
 </html>
