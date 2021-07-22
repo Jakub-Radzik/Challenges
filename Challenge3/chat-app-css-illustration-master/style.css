@@ -16,20 +16,49 @@ body {
 }
 
 #container {
-    border: 1px solid black;
     background: #faf2e7;
     min-height: 90vh;
-    width: 90%;
+    width: 80%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: -2;
 }
+
+.back{
+    position: absolute;
+    width: 300px;
+    height: 600px;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#gradient-bar{
+    left: 0;
+    top: 0;
+    background: rgb(136, 56, 255);
+    background: linear-gradient(0deg, rgba(136, 56, 255, 1) 0%, rgba(233, 66, 255, 1) 100%);
+    border-radius: 0 0 150px 150px;
+}
+
+#gray-bar{
+    right: 0;
+    bottom: 0;
+    background: hsl(270, 20%, 96%);
+    border-radius: 150px 150px 0 0 ;
+}
+
+
+
+
+
 
 #phone {
     border: 10px solid hsl(0, 0%, 100%);
     background: hsl(0, 0%, 100%);
-    width: 250px;
+    width: 270px;
     border-radius: 20px;
     position: relative;
 }
@@ -118,8 +147,8 @@ body {
 
 [id^=msg] {
     max-width: 50%;
-    font-size: 0.6rem;
-    padding: 5px;
+    font-size: 0.75rem;
+    padding: 6px;
     margin: 5px 0;
 }
 
@@ -216,7 +245,7 @@ body {
 
 /*DESCRIPTION*/
 #desc{
-
+    margin-left: 150px;
 }
 #desc h1{
     color: hsl(271, 36%, 24%);
@@ -227,5 +256,54 @@ body {
 }
 
 
+
+/*RESPONSIVE*/
+
+@media (max-width: 1100px) {
+    #desc{
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 1000px) {
+    #container{
+        width: 100%;
+    }
+
+    p{
+        width: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    #container {
+        flex-direction: column;
+        height: auto;
+        padding: 200px 0;
+    }
+
+    #gradient-bar {
+        transform: translateX(-150px);
+    }
+
+    #gray-bar {
+        transform: translateX(150px);
+    }
+
+    #desc {
+        margin-top: 50px;
+    }
+
+    #desc h1 {
+        text-align: center;
+    }
+
+    #desc p{
+        width: 80%;
+        text-align: center;
+        margin: 20px auto 0 auto;
+    }
+
+}
 
 
