@@ -7,29 +7,29 @@ export const fetchCountriesRequest = () => {
     }
 }
 
-export const fetchCryptoCurrenciesSuccess = (countries) => {
+export const fetchCountriesSuccess = (countries) => {
     return {
         type: FETCH_COUNTRIES_SUCCESS,
         payload: countries
     }
 }
 
-export const fetchCryptoCurrenciesFailure = (error) => {
+export const fetchCountriesFailure = (error) => {
     return {
         type: FETCH_COUNTRIES_FAILURE,
         payload: error
     }
 }
 
-export const fetchCryptoCurrencies = () => {
+export const fetchCountries = () => {
     return (dispatch) => {
         dispatch(fetchCountriesRequest());
         axios.get(`https://restcountries.eu/rest/v2/all`)
             .then(response => {
-                dispatch(fetchCryptoCurrenciesSuccess(response.data))
+                dispatch(fetchCountriesSuccess(response.data))
             })
             .catch(error => {
-                dispatch(fetchCryptoCurrenciesFailure(error.message))
+                dispatch(fetchCountriesFailure(error.message))
             })
     }
 }

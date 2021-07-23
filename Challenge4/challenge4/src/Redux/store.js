@@ -3,10 +3,10 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 import countriesReducer from "./Countries/countriesReducer";
 
-let rootReducer = combineReducers({
-    countries : countriesReducer(),
-});
+// let rootReducer = combineReducers({
+//     countries : countriesReducer(),
+// });
 
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+const store = createStore(countriesReducer, applyMiddleware(thunk, logger));
 
 export default store;

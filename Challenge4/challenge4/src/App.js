@@ -44,6 +44,7 @@ function App() {
 
     const App = styled.div`
         background: ${theme.set.background};
+        // background:red;
     `
     return (
         <App>
