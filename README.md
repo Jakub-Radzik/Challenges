@@ -24,7 +24,20 @@
 <img src="https://github.com/radzikoska123/radzikoska123/blob/main/icons/css-3.png" alt="css" width="30"/> 
 </div>
 
+###  Enjoy, done
+<img src="https://github.com/radzikoska123/Challenges/blob/master/Challenge3/chat-app-css-illustration-master/design/desktop-preview.jpg" alt="preview-3 "/>
+
+## <a href="https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca">Challenge 4</a> - REST Countries API with color theme switcher -  🔵🔵🔵🔵⚪️ 
+<div align="left">
+<img src="https://github.com/radzikoska123/radzikoska123/blob/main/icons/react.png" alt="css" width="30"/> 
+<img src="https://github.com/radzikoska123/radzikoska123/blob/main/icons/html.png" alt="css" width="30"/> 
+<img src="https://github.com/radzikoska123/radzikoska123/blob/main/icons/css-3.png" alt="css" width="30"/> 
+<img src="https://github.com/radzikoska123/radzikoska123/blob/main/icons/redux.png" alt="css" width="30"/> 
+<img src="https://github.com/radzikoska123/radzikoska123/blob/main/icons/styled.png" alt="css" width="30"/> 
+</div>
+
 ###  WORKING ON
-<img src="https://github.com/radzikoska123/Challenges/blob/master/Challenge3/chat-app-css-illustration-master/design/desktop-preview.jpg" alt="preview-2 "/>
+<img src="https://github.com/radzikoska123/Challenges/blob/master/Challenge4/challenge4/rest-countries-api-with-color-theme-switcher-master/design/desktop-preview.jpg" alt="preview-4 "/>
+
 
 
