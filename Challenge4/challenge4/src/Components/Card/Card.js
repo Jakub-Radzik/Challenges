@@ -9,13 +9,19 @@ function Card(props) {
 
     const CardStyled = styled.div`
         width:300px;
-        height:300px;
         display: inline-block;
+        border: 1px solid black;
+        margin: 20px;
+    `
+
+    const Flag = styled.img`
+        width: 100%;
+        height: 200px;
     `
 
     return (
         <CardStyled>
-            {/*<img src="" alt=""/>*/}
+            <Flag src={props.flag} alt={props.name}/>
             <div>
                 <h4>{props.name}</h4>
                 <div>
