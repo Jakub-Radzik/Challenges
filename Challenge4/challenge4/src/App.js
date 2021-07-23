@@ -1,14 +1,20 @@
 import './App.css';
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Header from "./Components/Nav/Header";
 import sun from "./Icons/sun.svg";
 import moon from "./Icons/moon.svg";
 import Main from "./Components/Main/Main";
 import styled from "styled-components";
+import {connect} from "react-redux";
+import {fetchCountries} from "./Redux/Countries/countriesActions";
 
 export const darkThemeContext = React.createContext({name: 'dark', set: undefined})
 
-function App() {
+function App(props) {
+
+    useEffect(()=>{
+        props.fetchData();
+    },[])
 
     const themes = {
         light: {
@@ -50,10 +56,37 @@ function App() {
         <App>
             <darkThemeContext.Provider value={{theme: theme, toggleTheme: () => toggleTheme()}}>
                 <Header/>
-                <Main/>
+
+                {
+                    props.item.loading && <div id="loading">Loading</div>
+                }
+
+                {
+                    props.item.error && <div id="loading">Error</div>
+                }
+
+                {
+                    props.item.countries.length>0 && <Main countries={props.item.countries}/>
+                }
+
             </darkThemeContext.Provider>
         </App>
     );
 }
 
-export default App;
+function mapStateToProps(state) {
+    return {
+        item : state
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        fetchData : () => dispatch(fetchCountries())
+    };
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App);
