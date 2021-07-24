@@ -14,6 +14,7 @@ function App(props) {
 
     useEffect(()=>{
         props.fetchData();
+        console.log("STRZAL DO API");
     },[])
 
     const themes = {

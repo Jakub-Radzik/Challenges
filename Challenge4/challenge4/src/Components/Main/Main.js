@@ -5,8 +5,7 @@ import {darkThemeContext} from "../../App";
 import {Responsive} from "../Global/Responsive";
 
 function Main(props) {
-    //TODO: move redux to app
-    const darkThemeCtx = useContext(darkThemeContext);
+    // const darkThemeCtx = useContext(darkThemeContext);
 
     const Main = styled.main`
         width:100%;
