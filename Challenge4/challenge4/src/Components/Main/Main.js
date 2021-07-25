@@ -1,43 +1,43 @@
-import React, {useContext, useEffect} from 'react';
-import styled from "styled-components";
-import Card from "../Card/Card";
-import {darkThemeContext} from "../../App";
-import {Responsive} from "../Global/Responsive";
+import React, {useEffect, useState} from 'react';
+import Card from "./Card/Card";
+import {Responsive} from "../StyledComponents/Responsive";
+import FunctionalBar from "./FunctionalBar/FunctionalBar";
+import {Content, MainStyled} from "../StyledComponents/Main/MainStyledComponents";
+
+export const searchPhraseContext = React.createContext({setValue: undefined});
 
 function Main(props) {
-    // const darkThemeCtx = useContext(darkThemeContext);
 
-    const Main = styled.main`
-        width:100%;
-        min-height: 100vh;
-    `
-    const Content = styled.div`
-        width:100%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    `
+    const [searchPhrase, setSearchPhrase] = useState("");
+
+    useEffect(() => {
+        console.log(searchPhrase);
+    }, [searchPhrase])
+
 
     return (
-        <Main>
-            <Responsive>
-                <Content>
-                    {
-                        props.countries && props.countries.slice(0,28)
-                            .map(
-                            country => <Card
-                                flag = {country.flag}
-                                name={country.name}
-                                population={country.population}
-                                region = {country.region}
-                                capital = {country.capital}
-                            />
-                            )
-                    }
-                </Content>
-            </Responsive>
-        </Main>
-        );
+        <MainStyled>
+            <searchPhraseContext.Provider value={{setValue: setSearchPhrase}}>
+                <Responsive>
+                    <Content>
+                        <FunctionalBar/>
+                        {
+                            props.countries && props.countries
+                                .map(
+                                    country => <Card
+                                        flag={country.flag}
+                                        name={country.name}
+                                        population={country.population}
+                                        region={country.region}
+                                        capital={country.capital}
+                                    />
+                                )
+                        }
+                    </Content>
+                </Responsive>
+            </searchPhraseContext.Provider>
+        </MainStyled>
+    );
 }
+
 export default React.memo(Main);

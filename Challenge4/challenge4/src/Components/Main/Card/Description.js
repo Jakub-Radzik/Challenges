@@ -1,26 +1,9 @@
-import styled from "styled-components";
 import React from "react";
+import {Contain, Desc, Text} from "../../StyledComponents/Card/CardStyledComponents";
 
-function Description(props){
+function Description(props) {
 
-    const Desc = styled.span`
-        font-weight: 700;
-    `;
-
-    const Contain = styled.div`
-      width: 90%;
-      margin: 0 auto 40px auto;
-      
-      h4{
-        font-size: 1.3rem;
-      }
-    `
-
-    const Text = styled.div`
-        line-height: 12px;
-    `
-
-    return(
+    return (
         <Contain>
             <h4>{props.name}</h4>
             <Text>

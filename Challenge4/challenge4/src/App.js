@@ -4,6 +4,8 @@ import Header from "./Components/Nav/Header";
 import sun from "./Icons/sun.svg";
 import moon from "./Icons/moon.svg";
 import Main from "./Components/Main/Main";
+import lightMagnifier from "./Icons/magnifying-glass-light.svg";
+import darkMagnifier from "./Icons/magnifying-glass-dark.svg";
 import styled from "styled-components";
 import {connect} from "react-redux";
 import {fetchCountries} from "./Redux/Countries/countriesActions";
@@ -12,31 +14,30 @@ export const darkThemeContext = React.createContext({name: 'dark', set: undefine
 
 function App(props) {
 
-    useEffect(()=>{
+    useEffect(() => {
         props.fetchData();
-        console.log("STRZAL DO API");
-    },[])
+    }, [])
 
     const themes = {
         light: {
             changeFor: 'Dark Theme',
             toggler: moon,
-
             elements: 'hsl(0, 0%, 100%)',
             text: 'hsl(200, 15%, 8%)',
             background: 'hsl(0, 0%, 98%)',
             navShadow: '0px 0px 7px 3px hsl(0, 0%, 80%)',
-
-            input: 'hsl(0, 0%, 52%)'
+            input: 'hsl(0, 0%, 52%)',
+            magnifier: lightMagnifier,
         },
         dark: {
             changeFor: 'Light Theme',
             toggler: sun,
-
             elements: 'hsl(209, 23%, 22%)',
             text: 'hsl(0, 0%, 100%)',
             background: 'hsl(207, 26%, 17%)',
             navShadow: '0px 0px 7px 3px hsl(207, 26%, 9%)',
+            input: 'hsl(0, 0%, 100%)',
+            magnifier: darkMagnifier,
         }
     }
     const [theme, setTheme] = useState({name: 'light', set: themes.light});
@@ -50,9 +51,14 @@ function App(props) {
     }
 
     const App = styled.div`
-        background: ${theme.set.background};
-        // background:red;
+      background: ${theme.set.background};
+      //-webkit-touch-callout: none; /* iOS Safari */
+      //-webkit-user-select: none; /* Safari */
+      //-moz-user-select: none; /* Old versions of Firefox */
+      //-ms-user-select: none; /* Internet Explorer/Edge */
+      //user-select: none;
     `
+
     return (
         <App>
             <darkThemeContext.Provider value={{theme: theme, toggleTheme: () => toggleTheme()}}>
@@ -67,7 +73,7 @@ function App(props) {
                 }
 
                 {
-                    props.item.countries.length>0 && <Main countries={props.item.countries}/>
+                    props.item.countries.length > 0 && <Main countries={props.item.countries}/>
                 }
 
             </darkThemeContext.Provider>
@@ -77,13 +83,13 @@ function App(props) {
 
 function mapStateToProps(state) {
     return {
-        item : state
+        item: state
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchData : () => dispatch(fetchCountries())
+        fetchData: () => dispatch(fetchCountries())
     };
 }
 
