@@ -6,11 +6,13 @@ import moon from "./Icons/moon.svg";
 import Main from "./Components/Main/Main";
 import lightMagnifier from "./Icons/magnifying-glass-light.svg";
 import darkMagnifier from "./Icons/magnifying-glass-dark.svg";
+import lightArrow from "./Icons/arrow-light.svg";
+import darkArrow from "./Icons/arrow-dark.svg";
 import styled from "styled-components";
 import {connect} from "react-redux";
 import {fetchCountries} from "./Redux/Countries/countriesActions";
 import {HashRouter, Link, Switch, Route} from "react-router-dom";
-import Detail from "./Components/Main/Detail";
+import Detail from "./Components/Main/Detail/Detail";
 
 export const darkThemeContext = React.createContext({name: 'dark', set: undefined})
 
@@ -30,6 +32,7 @@ function App(props) {
             navShadow: '0px 0px 7px 3px hsl(0, 0%, 80%)',
             input: 'hsl(0, 0%, 52%)',
             magnifier: lightMagnifier,
+            arrow: lightArrow
         },
         dark: {
             changeFor: 'Light Theme',
@@ -40,6 +43,7 @@ function App(props) {
             navShadow: '0px 0px 7px 3px hsl(207, 26%, 9%)',
             input: 'hsl(0, 0%, 100%)',
             magnifier: darkMagnifier,
+            arrow: darkArrow
         }
     }
     const [theme, setTheme] = useState({name: 'light', set: themes.light});
