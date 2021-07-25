@@ -15,14 +15,39 @@ function Main(props) {
     }, [searchPhrase])
 
 
+    /*SELECT REGION HANDLERS*/
+    const initialRegionState = "World";
+    const [region, setRegion] = useState(initialRegionState);
+
+    const handleRegion = (event) => {
+        setRegion(event.target.value);
+    }
+    /************************/
+
+
     return (
         <MainStyled>
             <searchPhraseContext.Provider value={{setValue: setSearchPhrase}}>
                 <Responsive>
                     <Content>
-                        <FunctionalBar/>
+                        <FunctionalBar handle={handleRegion} value={region}/>
                         {
-                            props.countries && props.countries
+                            //NO SELECTING - ALL
+                            props.countries && region === initialRegionState && props.countries
+                                .map(
+                                    country => <Card
+                                        flag={country.flag}
+                                        name={country.name}
+                                        population={country.population}
+                                        region={country.region}
+                                        capital={country.capital}
+                                    />
+                                )
+                        }
+
+                        {
+                            //SELECT REGION
+                            props.countries && region !== initialRegionState && props.countries.filter(country => country.region === region)
                                 .map(
                                     country => <Card
                                         flag={country.flag}
