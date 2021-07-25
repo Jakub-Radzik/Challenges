@@ -25,31 +25,49 @@ function Main(props) {
     /************************/
 
 
+    /*SEARCH FOR COUNTRY HANDLERS*/
+    const [phrase, setPhrase] = useState("");
+
+    const handleSearch = (event) => {
+        setPhrase(event.target.value);
+    }
+    /******************************/
+
+
+    const filterHandler = country => {
+        let condition1 = country.name.toLowerCase().startsWith(phrase.toLowerCase());
+        let condition2 = country.region === region;
+
+        if (region === initialRegionState) {
+            if (phrase === "") {    //all countries
+                return true;
+            } else {    //starts with (whole world)
+                return condition1;
+                // return country.name.toLowerCase().includes(phrase.toLowerCase());
+            }
+        } else {
+            if (phrase === "") {    //whole region
+                return condition2;
+            } else {    //whole region and start with
+                return condition2 && condition1;
+            }
+        }
+    }
+
+
     return (
         <MainStyled>
             <searchPhraseContext.Provider value={{setValue: setSearchPhrase}}>
                 <Responsive>
                     <Content>
-                        <FunctionalBar handle={handleRegion} value={region}/>
+                        <FunctionalBar handleSearch={handleSearch} handleRegion={handleRegion} valueRegion={region}
+                                       valueSearch={phrase}/>
                         {
-                            //NO SELECTING - ALL
-                            props.countries && region === initialRegionState && props.countries
+                            //ALL CONDITIONS
+                            props.countries && props.countries.filter(country => filterHandler(country))
                                 .map(
-                                    country => <Card
-                                        flag={country.flag}
-                                        name={country.name}
-                                        population={country.population}
-                                        region={country.region}
-                                        capital={country.capital}
-                                    />
-                                )
-                        }
-
-                        {
-                            //SELECT REGION
-                            props.countries && region !== initialRegionState && props.countries.filter(country => country.region === region)
-                                .map(
-                                    country => <Card
+                                    country =>
+                                            <Card
                                         flag={country.flag}
                                         name={country.name}
                                         population={country.population}

@@ -9,6 +9,8 @@ import darkMagnifier from "./Icons/magnifying-glass-dark.svg";
 import styled from "styled-components";
 import {connect} from "react-redux";
 import {fetchCountries} from "./Redux/Countries/countriesActions";
+import {HashRouter, Link, Switch, Route} from "react-router-dom";
+import Detail from "./Components/Main/Detail";
 
 export const darkThemeContext = React.createContext({name: 'dark', set: undefined})
 
@@ -64,17 +66,24 @@ function App(props) {
             <darkThemeContext.Provider value={{theme: theme, toggleTheme: () => toggleTheme()}}>
                 <Header/>
 
-                {
-                    props.item.loading && <div id="loading">Loading</div>
-                }
+                <Switch>
+                  <Route exact path={"/"}>
+                      {
+                          props.item.loading && <div id="loading">Loading</div>
+                      }
 
-                {
-                    props.item.error && <div id="loading">Error</div>
-                }
+                      {
+                          props.item.error && <div id="loading">Error</div>
+                      }
 
-                {
-                    props.item.countries.length > 0 && <Main countries={props.item.countries}/>
-                }
+                      {
+                          props.item.countries.length > 0 && <Main countries={props.item.countries}/>
+                      }
+                  </Route>
+
+                    <Route path={"/country/:code"} component={Detail}/>
+
+                </Switch>
 
             </darkThemeContext.Provider>
         </App>
@@ -83,7 +92,7 @@ function App(props) {
 
 function mapStateToProps(state) {
     return {
-        item: state
+        item: state.countries
     };
 }
 

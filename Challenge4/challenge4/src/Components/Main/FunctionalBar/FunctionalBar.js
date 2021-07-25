@@ -5,11 +5,10 @@ import RegionSelectFilter from "./Tools/RegionSelectFilter";
 
 function FunctionalBar(props) {
 
-
     return (
         <StyledFunctionalBar>
-            <StyledSearchBar search={props.search}/>
-            <RegionSelectFilter handle={props.handle} value={props.value}/>
+            <StyledSearchBar phrase={props.valueSearch} handler={props.handleSearch}/>
+            <RegionSelectFilter handle={props.handleRegion} value={props.valueRegion}/>
         </StyledFunctionalBar>
     );
 }
