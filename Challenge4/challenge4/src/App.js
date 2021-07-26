@@ -13,6 +13,7 @@ import {connect} from "react-redux";
 import {fetchCountries} from "./Redux/Countries/countriesActions";
 import {HashRouter, Link, Switch, Route} from "react-router-dom";
 import Detail from "./Components/Main/Detail/Detail";
+import {Loading} from "./Components/StyledComponents/Loading";
 
 export const darkThemeContext = React.createContext({name: 'dark', set: undefined})
 
@@ -66,7 +67,6 @@ function App(props) {
     `
 
 	//TODO: mobile
-	//TODO: loading gif
 	//TODO: bug fixes- warnings
 	//TODO: Names and structure fix
 
@@ -74,11 +74,10 @@ function App(props) {
         <App>
             <darkThemeContext.Provider value={{theme: theme, toggleTheme: () => toggleTheme()}}>
                 <Header/>
-
                 <Switch>
                   <Route exact path={"/"}>
                       {
-                          props.item.loading && <div id="loading">Loading</div>
+                          props.item.loading && <Loading/>
                       }
 
                       {

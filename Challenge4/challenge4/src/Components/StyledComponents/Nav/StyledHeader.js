@@ -7,6 +7,12 @@ export const Content = styled.div`
   justify-content: space-around;
   align-items: center;
   font-weight: 700;
+  
+  @media(max-width:900px){
+    flex-direction: column;
+    justify-content: center;
+  }
+  
 `
 
 export const ThemeButton = styled.img`
@@ -33,4 +39,8 @@ export const StyledHeader = styled.header`
   color: ${props => props.text};
   box-shadow: ${props => props.navShadow};
   -webkit-box-shadow: ${props => props.navShadow};
+  
+  @media(max-width:900px){
+    height: 150px;
+  }
 `;

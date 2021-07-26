@@ -16,12 +16,17 @@ export const Container = styled.div`
       width: 90%;
       margin: auto;
       min-height: 500px;
+      
+      @media(max-width:1100px){
+        flex-direction:column;
+      }
     `
 
 export const Heading = styled.div`
       font-weight: 700;
       font-size: 2rem;
       margin: 0 0 20px 50px;
+      text-align: center;
     `
 
 export const Right = styled.div`
@@ -40,10 +45,31 @@ export const Details = styled.div`
       >div{
         margin-left:50px;
       }
+      
+      @media(max-width:1100px){
+        flex-direction:column;
+        align-items: center;
+        justify-content: center;
+            >div{
+            margin-left:0px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+          }
+      }
+      
     `
 
 export const BorderCountries = styled.div`
         margin-left:50px;
+        @media(max-width:1100px){
+        margin:0;
+        display:flex;
+        flex-direction:row;
+        align-items:center;
+        justify-content:center;
+        }
     `
 
 export const BorderCountry = styled.div`
@@ -67,7 +93,7 @@ export const BackButtonContainer = styled.div`
       margin: auto;
       padding: 30px 0;
     `
-
+//TODO: detail max height repair
 export const BackButton = styled.div`
       width: min-content;
       padding: 5px 30px;

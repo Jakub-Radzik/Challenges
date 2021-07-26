@@ -8,6 +8,10 @@ export const StyledSearchEngine = styled.div`
       align-items: center;
       border-radius: 5px;
       background: ${props => props.elements};
+      
+      @media(max-width: 900px){
+        width: 100%
+            }
     `;
 
 export const StyledIcon = styled.img`

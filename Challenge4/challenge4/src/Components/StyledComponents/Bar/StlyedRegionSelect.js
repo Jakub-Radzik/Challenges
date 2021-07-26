@@ -10,7 +10,10 @@ export const Select = styled.select`
       border-radius: 10px;
       color: ${props => props.input};
       background: ${props => props.elements};
-      
+      @media(max-width: 900px){
+            width:100%;
+            margin-top:10px;
+        }
     `
 //TODO: style for dropdown
 export const Option = styled.option`

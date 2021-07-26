@@ -1,20 +1,19 @@
 import * as React from 'react';
-import {useContext, useEffect, useState} from 'react';
+import {useContext, useEffect} from 'react';
 import {fetchCountry} from "../../../Redux/Country/countryActions";
 import {connect} from "react-redux";
 import {Desc} from "../../StyledComponents/Card/CardStyledComponents";
 import {Responsive} from "../../StyledComponents/Responsive";
 import {darkThemeContext} from "../../../App";
 import {
-    BorderCountries, BorderCountry,
+    BorderCountries,
+    BorderCountry,
     Container,
     Details,
     Flag,
     Heading,
     Right
 } from "../../StyledComponents/Main/DetailStyledComponents";
-import axios from "axios";
-import async from "async";
 
 function DetailContainer(props) {
 

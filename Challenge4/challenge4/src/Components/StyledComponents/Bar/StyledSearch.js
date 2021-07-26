@@ -11,6 +11,10 @@ export const Search = styled.input`
   border-radius: 10px;
   color: ${props => props.input};
 
+   @media(max-width: 900px){
+    width: 100%
+  }
+
   ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: ${props => props.input};
     opacity: 1; /* Firefox */
