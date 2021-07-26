@@ -1,13 +1,10 @@
 import * as React from 'react';
 import DetailContainer from "./DetailContainer";
-import styled from "styled-components";
 import ReturnBar from "./ReturnBar";
+import {StyledDetail} from "../../StyledComponents/Main/DetailStyledComponents";
 
 function Detail(props) {
 
-    const StyledDetail = styled.div`
-      height: calc(100vh - 100px);
-    `
 
     return (
         <StyledDetail>

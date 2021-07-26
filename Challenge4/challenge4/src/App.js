@@ -65,6 +65,11 @@ function App(props) {
       //user-select: none;
     `
 
+	//TODO: mobile
+	//TODO: loading gif
+	//TODO: bug fixes- warnings
+	//TODO: Names and structure fix
+
     return (
         <App>
             <darkThemeContext.Provider value={{theme: theme, toggleTheme: () => toggleTheme()}}>

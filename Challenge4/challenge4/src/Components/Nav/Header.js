@@ -1,8 +1,7 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {darkThemeContext} from "../../App";
 import {Responsive} from "../StyledComponents/Responsive";
-import {Content} from "../StyledComponents/Nav/StyledHeader";
-import {StyledHeader, ThemeButton, Toggler} from "../StyledComponents/Nav/StyledHeader";
+import {Content, StyledHeader, ThemeButton, Toggler} from "../StyledComponents/Nav/StyledHeader";
 
 function Header() {
 

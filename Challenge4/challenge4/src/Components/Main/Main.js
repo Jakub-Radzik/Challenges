@@ -3,6 +3,7 @@ import Card from "./Card/Card";
 import {Responsive} from "../StyledComponents/Responsive";
 import FunctionalBar from "./FunctionalBar/FunctionalBar";
 import {Content, MainStyled} from "../StyledComponents/Main/MainStyledComponents";
+import {Link} from "react-router-dom";
 
 export const searchPhraseContext = React.createContext({setValue: undefined});
 
@@ -67,13 +68,15 @@ function Main(props) {
                             props.countries && props.countries.filter(country => filterHandler(country))
                                 .map(
                                     country =>
+                                        <Link to={`/country/${country.alpha2Code}`}>
                                             <Card
-                                        flag={country.flag}
-                                        name={country.name}
-                                        population={country.population}
-                                        region={country.region}
-                                        capital={country.capital}
-                                    />
+                                                flag={country.flag}
+                                                name={country.name}
+                                                population={country.population}
+                                                region={country.region}
+                                                capital={country.capital}
+                                            />
+                                        </Link>
                                 )
                         }
                     </Content>
