@@ -13,7 +13,6 @@ export const Container = styled.div`
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
-      border: 1px solid black;
       width: 90%;
       margin: auto;
       min-height: 500px;
@@ -22,7 +21,6 @@ export const Container = styled.div`
 export const Heading = styled.div`
       font-weight: 700;
       font-size: 2rem;
-      border: 1px solid black;
       margin: 0 0 20px 50px;
     `
 
@@ -32,7 +30,6 @@ export const Right = styled.div`
     `
 
 export const Details = styled.div`
-      border: 1px solid black;
       display: flex;
       flex-direction: row;
       align-items: flex-start;
@@ -41,7 +38,6 @@ export const Details = styled.div`
       
       
       >div{
-        border: 1px solid black;
         margin-left:50px;
       }
     `
@@ -56,4 +52,38 @@ export const BorderCountry = styled.div`
         color: ${props => props.text};
         display: inline-block;
         margin: 0 5px;
+        padding: 0 5px;
+    `
+
+//RETURN BAR
+
+
+export const StyledReturnBar = styled.div`
+      width: 100%;
+    `
+
+export const BackButtonContainer = styled.div`
+      width: 90%;
+      margin: auto;
+      padding: 30px 0;
+    `
+
+export const BackButton = styled.div`
+      width: min-content;
+      padding: 5px 30px;
+      border-radius: 5px;
+      font-weight: 500;
+      background: ${props => props.elements};
+      color: ${props => props.text};
+      box-shadow: ${props => props.navShadow};
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-decoration: none;
+    `
+
+export const Arrow = styled.img`
+      height: 20px;
+      margin-right: 10px;
+      transform: rotate(180deg);
     `

@@ -20,7 +20,7 @@ function DetailContainer(props) {
 
     const darkThemeCtx = useContext(darkThemeContext);
 
-    const [borderCountries, setBorderCountries] = useState({border: []});
+    // const [borderCountries, setBorderCountries] = useState({border: []});
 
     useEffect(() => {
         props.fetchData();
@@ -32,15 +32,12 @@ function DetailContainer(props) {
     //     return dataPromise
     // }
 
-    async function axiosTest(code) {
-        console.log(code)
-        const response = await axios.get(`https://restcountries.eu/rest/v2/alpha/${code}`)
-        console.log(response)
-        return response.data.name;
-    }
-
-
-    // useEffect(()=>{console.log(borderCountries)},[borderCountries])
+    // async function axiosTest(code) {
+    //     console.log(code)
+    //     const response = await axios.get(`https://restcountries.eu/rest/v2/alpha/${code}`)
+    //     console.log(response)
+    //     return response.data.name;
+    // }
 
     return (
         <React.Fragment>
@@ -53,8 +50,8 @@ function DetailContainer(props) {
                             <Heading>{props.item.country.name}</Heading>
                             <Details>
                                 <div>
-                                    <p><Desc>Native Name: </Desc>{props.item.country.name}</p>
-                                    <p><Desc>Population: </Desc>{props.item.country.nativeName}</p>
+                                    <p><Desc>Native Name: </Desc>{props.item.country.nativeName}</p>
+                                    <p><Desc>Population: </Desc>{props.item.country.population}</p>
                                     <p><Desc>Region: </Desc>{props.item.country.region}</p>
                                     <p><Desc>Sub Region: </Desc>{props.item.country.subregion}</p>
                                     <p><Desc>Capital: </Desc>{props.item.country.capital}</p>
@@ -65,13 +62,13 @@ function DetailContainer(props) {
                                         return <span>{elem.name}</span>
                                     })}</p>
                                     <p><Desc>Languages: </Desc>{props.item.country.languages.map((elem, idx) => {
-                                        return <span>{elem.name}</span>
+                                        return <span> {elem.name}</span>
                                     })}</p>
                                 </div>
                             </Details>
                             <BorderCountries>
                                 <p><Desc>Border Countries: </Desc>{props.item.country.borders.map((elem, idx) => {
-                                    return <BorderCountry>{elem}</BorderCountry>
+                                    return <BorderCountry elements={darkThemeCtx.theme.set.elements} text={darkThemeCtx.theme.set.text}>{elem}</BorderCountry>
                                 })}</p>
                             </BorderCountries>
                         </Right>
