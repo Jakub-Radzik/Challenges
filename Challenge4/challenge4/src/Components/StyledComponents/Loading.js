@@ -10,6 +10,13 @@ const rotate = keyframes`
   }
 `;
 
+export const LoaderContainer = styled.div`
+  background: ${props => props.background};
+  height: 100vh;
+  width: 100%;
+  margin-top: 20px;
+`
+
 export const Loading = styled.div`
     width: 200px;
     height: 200px;

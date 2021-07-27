@@ -32,4 +32,7 @@ export const CardStyled = styled.div`
   color: ${props => props.text};
   box-shadow: ${props => props.navShadow};
   border-radius: ${props => props.radius};
+  @media(max-width: 400px){
+    margin: 20px 0;
+  }
 `

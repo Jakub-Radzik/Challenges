@@ -8,12 +8,12 @@ import lightMagnifier from "./Icons/magnifying-glass-light.svg";
 import darkMagnifier from "./Icons/magnifying-glass-dark.svg";
 import lightArrow from "./Icons/arrow-light.svg";
 import darkArrow from "./Icons/arrow-dark.svg";
-import styled from "styled-components";
 import {connect} from "react-redux";
 import {fetchCountries} from "./Redux/Countries/countriesActions";
-import {HashRouter, Link, Switch, Route} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import Detail from "./Components/Main/Detail/Detail";
-import {Loading} from "./Components/StyledComponents/Loading";
+import {LoaderContainer, Loading} from "./Components/StyledComponents/Loading";
+import {StyledApp} from "./Components/StyledComponents/StyledApp";
 
 export const darkThemeContext = React.createContext({name: 'dark', set: undefined})
 
@@ -57,44 +57,56 @@ function App(props) {
         }
     }
 
-    const App = styled.div`
-      background: ${theme.set.background};
-      //-webkit-touch-callout: none; /* iOS Safari */
-      //-webkit-user-select: none; /* Safari */
-      //-moz-user-select: none; /* Old versions of Firefox */
-      //-ms-user-select: none; /* Internet Explorer/Edge */
-      //user-select: none;
-    `
 
-	//TODO: mobile
-	//TODO: bug fixes- warnings
-	//TODO: Names and structure fix
+    //remember theme after refresh
+    useEffect(() => {
+        let selectedTheme = localStorage.getItem('theme');
+
+        if (selectedTheme === "dark") {
+            setTheme({name: 'dark', set: themes.dark}) //take theme from storage and use
+        } else {
+            localStorage.setItem('theme', `light`) //light as default
+        }
+
+    }, [])
+
+    //change theme in localStorage
+    useEffect(() => {
+        localStorage.setItem('theme', `${theme.name}`)
+    }, [theme])
+
+
+    //TODO: bug fixes- warnings
+    //TODO: Names and structure fix
 
     return (
-        <App>
+        <StyledApp background={theme.set.background}>
             <darkThemeContext.Provider value={{theme: theme, toggleTheme: () => toggleTheme()}}>
                 <Header/>
                 <Switch>
-                  <Route exact path={"/"}>
-                      {
-                          props.item.loading && <Loading/>
-                      }
+                    <Route exact path={"/"}>
+                        {
+                            props.item.loading &&
+                            <LoaderContainer background={theme.set.background}>
+                                <Loading/>
+                            </LoaderContainer>
+                        }
 
-                      {
-                          props.item.error && <div id="loading">Error</div>
-                      }
+                        {
+                            props.item.error && <div id="error">Error</div>
+                        }
 
-                      {
-                          props.item.countries.length > 0 && <Main countries={props.item.countries}/>
-                      }
-                  </Route>
+                        {
+                            props.item.countries.length > 0 && <Main countries={props.item.countries}/>
+                        }
+                    </Route>
 
                     <Route path={"/country/:code"} component={Detail}/>
 
                 </Switch>
 
             </darkThemeContext.Provider>
-        </App>
+        </StyledApp>
     );
 }
 

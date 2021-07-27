@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {useContext, useState} from 'react';
-import styled from "styled-components";
+import {useContext} from 'react';
 import {darkThemeContext} from "../../../../App";
 import {Search} from "../../../StyledComponents/Bar/StyledSearch";
 
@@ -14,4 +13,4 @@ function SearchInput(props) {
     );
 }
 
-export default SearchInput
+export default SearchInput;

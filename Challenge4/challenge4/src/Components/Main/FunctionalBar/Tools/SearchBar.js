@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useContext, useState} from 'react';
+import {useContext} from 'react';
 import {darkThemeContext} from "../../../../App";
 import SearchInput from "./SearchInput";
 import {StyledIcon, StyledSearchEngine} from "../../../StyledComponents/Bar/StyledSearchBar";

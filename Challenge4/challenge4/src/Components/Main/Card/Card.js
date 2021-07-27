@@ -1,5 +1,4 @@
-import React, {useContext, useEffect} from 'react';
-import styled from "styled-components";
+import React, {useContext} from 'react';
 import Description from "./Description";
 import {darkThemeContext} from "../../../App";
 import {CardStyled, Flag} from "../../StyledComponents/Card/CardStyledComponents";

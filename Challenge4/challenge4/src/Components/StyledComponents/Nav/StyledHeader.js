@@ -11,6 +11,10 @@ export const Content = styled.div`
   @media(max-width:900px){
     flex-direction: column;
     justify-content: center;
+  
+    h1 {
+      font-size: 1.8rem;
+    }
   }
   
 `

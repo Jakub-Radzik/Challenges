@@ -55,6 +55,7 @@ function Main(props) {
         }
     }
 
+    let key = 0;
 
     return (
         <MainStyled>
@@ -68,7 +69,7 @@ function Main(props) {
                             props.countries && props.countries.filter(country => filterHandler(country))
                                 .map(
                                     country =>
-                                        <Link to={`/country/${country.alpha2Code}`}>
+                                        <Link to={`/country/${country.alpha2Code}`} key={key++}>
                                             <Card
                                                 flag={country.flag}
                                                 name={country.name}
