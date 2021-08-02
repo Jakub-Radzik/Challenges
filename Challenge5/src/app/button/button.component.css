@@ -1,0 +1,15 @@
+div{
+  font-size: 32px;
+  font-family: 'Spartan', sans-serif;
+
+
+  margin: auto;
+
+  height: 80px;
+  width: 100%;
+
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
