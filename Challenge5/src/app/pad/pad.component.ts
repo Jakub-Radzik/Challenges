@@ -26,7 +26,7 @@ export class PadComponent implements OnInit {
   public DOT = "4 / 1 / 5 / 2";
   public ZERO = "4 / 2 / 5 / 3";
 
-  public RED = "yellow";
+  public YELLOW = "yellow";
 
   //todo: color theme service
   //todo: calculator service with ngrx subscribe
