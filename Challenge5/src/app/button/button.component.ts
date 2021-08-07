@@ -12,21 +12,24 @@ export class ButtonComponent implements OnInit {
   @Input()
   public symbol: string = "";
 
-  constructor(private inputValueService: InputValueService) {
+  constructor() {
+    InputValueService._input.subscribe({
+      next: (value: any) => console.log(value)
+    })
   }
 
   public onButtonClick() {
     if(this.symbol?.toLocaleLowerCase()==="x"){
-      this.inputValueService.insertToInput('*');
+      InputValueService.insertToInput('*');
     }else if(this.symbol?.toLocaleLowerCase()==="del"){
-      this.inputValueService.removeLastChar();
+      InputValueService.removeLastChar();
     }else if(this.symbol?.toLocaleLowerCase()==="reset"){
-      this.inputValueService.deleteInput();
+      InputValueService.deleteInput();
     }else if(this.symbol?.toLocaleLowerCase()==="="){
+      InputValueService.calculate();
     }else{
-      this.inputValueService.insertToInput(this.symbol);
+      InputValueService.insertToInput(this.symbol);
     }
-    console.log(this.inputValueService.input);
   }
 
   ngOnInit(): void {

@@ -1,31 +1,29 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject, Observable, Subject} from "rxjs";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class InputValueService {
 
-  get input(): string | undefined {
-    return this._input;
+  public static _input = new BehaviorSubject<string>('');
+
+  public static insertToInput(value: string): void {
+    this._input.next(this._input.getValue().concat(value));
   }
 
-  private _input: string | undefined;
-
-  public insertToInput(value: string){
-    console.log(value);
+  public static deleteInput(): void {
+    this._input.next('');
   }
 
-  public deleteInput(){
-    this._input="";
+  public static removeLastChar(): void {
+    let currVal: string = this._input.getValue();
+    let valToSet: string = String(currVal.substr(0, currVal.length - 1))
+    this._input.next(valToSet)
   }
 
-  public removeLastChar(){
-    this._input = this._input?.substr(0, this._input?.length-1)
+  public static calculate(): void {
+    let currVal: string = this._input.getValue();
+    this._input.next(eval(currVal).toString());
   }
-
-  public calculate(){
-    if (typeof this._input === "string") {
-      this._input = eval(this._input);
-    }
-  }
-
-  constructor() { }
 }

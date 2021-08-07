@@ -6,6 +6,7 @@ import { ButtonComponent } from './button/button.component';
 import { PadComponent } from './pad/pad.component';
 import { DisplayComponent } from './display/display.component';
 import { HeaderComponent } from './header/header.component';
+import {InputValueService} from "./services/input-value.service";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [InputValueService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
