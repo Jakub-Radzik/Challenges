@@ -13,22 +13,24 @@ export class ButtonComponent implements OnInit {
   public symbol: string = "";
 
   constructor() {
-    InputValueService._input.subscribe({
-      next: (value: any) => console.log(value)
-    })
   }
 
   public onButtonClick() {
-    if(this.symbol?.toLocaleLowerCase()==="x"){
-      InputValueService.insertToInput('*');
-    }else if(this.symbol?.toLocaleLowerCase()==="del"){
-      InputValueService.removeLastChar();
-    }else if(this.symbol?.toLocaleLowerCase()==="reset"){
-      InputValueService.deleteInput();
-    }else if(this.symbol?.toLocaleLowerCase()==="="){
-      InputValueService.calculate();
-    }else{
-      InputValueService.insertToInput(this.symbol);
+    switch (this.symbol?.toLocaleLowerCase()) {
+      case "x":
+        InputValueService.insertToInput('*');
+        break;
+      case "del":
+        InputValueService.removeLastChar();
+        break;
+      case "reset":
+        InputValueService.deleteInput();
+        break;
+      case "=":
+        InputValueService.calculate();
+        break;
+      default:
+        InputValueService.insertToInput(this.symbol);
     }
   }
 

@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {InputValueService} from "../services/input-value.service";
+import {ThemeEngineService} from "../services/theme-engine.service";
 
 @Component({
   selector: 'app-pad',
@@ -26,12 +28,12 @@ export class PadComponent implements OnInit {
   public DOT = "4 / 1 / 5 / 2";
   public ZERO = "4 / 2 / 5 / 3";
 
-  public YELLOW = "yellow";
-
   //todo: color theme service
-  //todo: calculator service with ngrx subscribe
 
   constructor() {
+    InputValueService._input.subscribe({
+      next: (value: any) => console.log(value)
+    })
   }
 
   ngOnInit(): void {
