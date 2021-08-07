@@ -1,20 +1,24 @@
-<div class="container">
-  <app-button symbol="RESET" [style.grid-area]="RESET"></app-button>
-  <app-button symbol="=" [style.grid-area]="EQUAL"></app-button>
-  <app-button symbol="7" [style.grid-area]="SEVEN"></app-button>
-  <app-button symbol="8" [style.grid-area]="EIGHT"></app-button>
-  <app-button symbol="9" [style.grid-area]="NINE"></app-button>
-  <app-button symbol="DEL" [style.grid-area]="DELETE"></app-button>
-  <app-button symbol="4" [style.grid-area]="FOUR"></app-button>
-  <app-button symbol="5" [style.grid-area]="FIVE"></app-button>
-  <app-button symbol="6" [style.grid-area]="SIX"></app-button>
-  <app-button symbol="+" [style.grid-area]="ADD"></app-button>
-  <app-button symbol="-" [style.grid-area]="SUBTRACT"></app-button>
-  <app-button symbol="X" [style.grid-area]="MULTIPLY"></app-button>
-  <app-button symbol="/" [style.grid-area]="DIVIDE"></app-button>
-  <app-button symbol="1" [style.grid-area]="ONE"></app-button>
-  <app-button symbol="2" [style.grid-area]="TWO"></app-button>
-  <app-button symbol="3" [style.grid-area]="THREE"></app-button>
-  <app-button symbol="." [style.grid-area]="DOT"></app-button>
-  <app-button symbol="0" [style.grid-area]="ZERO"></app-button>
+<script src="../interfaces/ThemeSet.ts"></script>
+<div class="container" [style.background]="theme.background.main">
+  <app-button symbol="RESET" [style.grid-area]="RESET" [style.background]="theme.keys.basic.background" [style.color]="theme.text.text"></app-button>
+  <app-button symbol="=" [style.grid-area]="EQUAL" [style.background]="theme.keys.strongAccent.background" [style.color]="theme.text.text"></app-button>
+  <app-button symbol="7" [style.grid-area]="SEVEN" [style.background]="theme.keys.lightAccent.background" [style.color]="theme.text.color1"></app-button>
+  <app-button symbol="8" [style.grid-area]="EIGHT" [style.background]="theme.keys.lightAccent.background" [style.color]="theme.text.color1"></app-button>
+  <app-button symbol="9" [style.grid-area]="NINE" [style.background]="theme.keys.lightAccent.background" [style.color]="theme.text.color1"></app-button>
+  <app-button symbol="DEL" [style.grid-area]="DELETE" [style.background]="theme.keys.basic.background" [style.color]="theme.text.text"></app-button>
+  <app-button symbol="4" [style.grid-area]="FOUR" [style.background]="theme.keys.lightAccent.background" [style.color]="theme.text.color1"></app-button>
+  <app-button symbol="5" [style.grid-area]="FIVE" [style.background]="theme.keys.lightAccent.background" [style.color]="theme.text.color1"></app-button>
+  <app-button symbol="6" [style.grid-area]="SIX" [style.background]="theme.keys.lightAccent.background" [style.color]="theme.text.color1"></app-button>
+  <app-button symbol="+" [style.grid-area]="ADD" [style.background]="theme.keys.lightAccent.background" [style.color]="theme.text.color1"></app-button>
+  <app-button symbol="-" [style.grid-area]="SUBTRACT"
+              [style.background]="theme.keys.lightAccent.background" [style.color]="theme.text.color1"></app-button>
+  <app-button symbol="X" [style.grid-area]="MULTIPLY"
+              [style.background]="theme.keys.lightAccent.background" [style.color]="theme.text.color1"></app-button>
+  <app-button symbol="/" [style.grid-area]="DIVIDE" [style.background]="theme.keys.lightAccent.background" [style.color]="theme.text.color1"></app-button>
+  <app-button symbol="1" [style.grid-area]="ONE" [style.background]="theme.keys.lightAccent.background" [style.color]="theme.text.color1"></app-button>
+  <app-button symbol="2" [style.grid-area]="TWO" [style.background]="theme.keys.lightAccent.background" [style.color]="theme.text.color1"></app-button>
+  <app-button symbol="3" [style.grid-area]="THREE" [style.background]="theme.keys.lightAccent.background" [style.color]="theme.text.color1"></app-button>
+  <app-button symbol="." [style.grid-area]="DOT" [style.background]="theme.keys.lightAccent.background" [style.color]="theme.text.color1"></app-button>
+  <app-button symbol="0" [style.grid-area]="ZERO" [style.background]="theme.keys.lightAccent.background" [style.color]="theme.text.color1"></app-button>
 </div>
+<button (click)="changeTheme()">change</button>

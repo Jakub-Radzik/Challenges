@@ -1,12 +1,13 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
+import {ThemeSet} from "../interfaces/ThemeSet";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ThemeEngineService {
 
-  public static set1 = {
+  public static set1:ThemeSet = {
     togglerPosition: 1,
     background: {
       main: 'hsl(222, 26%, 31%)',
@@ -34,10 +35,10 @@ export class ThemeEngineService {
     text: {
       color1: 'hsl(221, 14%, 31%)',
       color2: '',
-      text: 'hsl(0, 0, 100%)'
+      text: 'hsl(0,0%,100%)'
     }
   };
-  public static set2 = {
+  public static set2:ThemeSet = {
     togglerPosition: 2,
     background: {
       main: 'hsl(0, 0%, 90%)',
@@ -65,10 +66,10 @@ export class ThemeEngineService {
     text: {
       color1: 'hsl(60, 10%, 19%)',
       color2: '',
-      text: 'hsl(0, 0, 100%)'
+      text: 'hsl(0, 0%, 100%)'
     }
   }
-  public static set3 = {
+  public static set3:ThemeSet = {
     togglerPosition: 3,
     background: {
       main: 'hsl(268, 75%, 9%)',
@@ -96,16 +97,20 @@ export class ThemeEngineService {
     text: {
       color1: 'hsl(52, 100%, 62%)',
       color2: 'hsl(198, 20%, 13%)',
-      text: 'hsl(0, 0, 100%)'
+      text: 'hsl(0,0%,100%)'
     }
   };
 
-  public static sets = [ThemeEngineService.set1, ThemeEngineService.set2, ThemeEngineService.set3]
+  public static sets: ThemeSet[] = [ThemeEngineService.set1, ThemeEngineService.set2, ThemeEngineService.set3]
   //TODO: save current theme in LocalStorage and load after refresh
 
-  private static incrementer = 0;
+  private static incrementer = 1;
 
-  public static currentSet = new BehaviorSubject<object>(ThemeEngineService.sets[ThemeEngineService.incrementer++ % 3]);
+  public static currentSet:BehaviorSubject<ThemeSet> = new BehaviorSubject<ThemeSet>(ThemeEngineService.set1);
+
+  public static getNextThemeSet(){
+    this.currentSet.next(ThemeEngineService.sets[ThemeEngineService.incrementer++ % 3])
+  }
 
   constructor() {
   }
