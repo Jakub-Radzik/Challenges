@@ -17,16 +17,16 @@ export class ThemeEngineService {
     },
     keys: {
       basic: {
-        background: 'hsl(225, 21%, 49%)',
-        shadow: 'hsl(224, 28%, 35%)'
+        background: 'hsl(30, 25%, 89%)',
+        shadow: 'hsl(28, 16%, 65%)'
       },
       strongAccent: {
         background: 'hsl(6, 63%, 50%)',
         shadow: 'hsl(6, 70%, 34%)'
       },
       lightAccent: {
-        background: 'hsl(30, 25%, 89%)',
-        shadow: 'hsl(28, 16%, 65%)'
+        background: 'hsl(225, 21%, 49%)',
+        shadow: 'hsl(224, 28%, 35%)'
       },
       toggler: {
         color: 'hsl(6, 63%, 50%)'
@@ -48,16 +48,16 @@ export class ThemeEngineService {
     },
     keys: {
       basic: {
-        background: 'hsl(185, 42%, 37%)',
-        shadow: 'hsl(185, 58%, 25%)'
+        background: 'hsl(45, 7%, 89%)',
+        shadow: 'hsl(35, 11%, 61%)'
       },
       strongAccent: {
         background: 'hsl(25, 98%, 40%)',
         shadow: 'hsl(25, 99%, 27%)'
       },
       lightAccent: {
-        background: 'hsl(45, 7%, 89%)',
-        shadow: 'hsl(35, 11%, 61%)'
+        background: 'hsl(185, 42%, 37%)',
+        shadow: 'hsl(185, 58%, 25%)'
       },
       toggler: {
         color: 'hsl(25, 98%, 40%)'
@@ -79,16 +79,16 @@ export class ThemeEngineService {
     },
     keys: {
       basic: {
-        background: 'hsl(281, 89%, 26%)',
-        shadow: 'hsl(285, 91%, 52%)'
+        background: 'hsl(268, 47%, 21%)',
+        shadow: 'hsl(290, 70%, 36%)'
       },
       strongAccent: {
         background: 'hsl(176, 100%, 44%)',
         shadow: 'hsl(177, 92%, 70%)'
       },
       lightAccent: {
-        background: 'hsl(268, 47%, 21%)',
-        shadow: 'hsl(290, 70%, 36%)'
+        background: 'hsl(281, 89%, 26%)',
+        shadow: 'hsl(285, 91%, 52%)'
       },
       toggler: {
         color: 'hsl(176, 100%, 44%)'

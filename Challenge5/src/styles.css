@@ -1,2 +1,132 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap');
+
+/*BUTTONS*/
+[class^=btn-]:active {
+  transform: translateY(5px);
+  height: 75px;
+}
+
+.btn-basic-1 {
+  background: hsl(30, 25%, 89%);
+  box-shadow: 0 4px 0 0 hsl(28, 16%, 65%);
+  -webkit-box-shadow: 0 4px 0 0 hsl(28, 16%, 65%);
+  color: hsl(221, 14%, 31%);
+}
+
+.btn-basic-1:active {
+  -webkit-box-shadow: 0 2px 0 0 hsl(28, 16%, 65%);
+  box-shadow: 0 2px 0 0 hsl(28, 16%, 65%);
+}
+
+.btn-basic-2 {
+  background: hsl(45, 7%, 89%);
+  box-shadow: 0 4px 0 0 hsl(35, 11%, 61%);
+  -webkit-box-shadow: 0 4px 0 0 hsl(35, 11%, 61%);
+  color: hsl(60, 10%, 19%);
+}
+
+.btn-basic-2:active {
+  -webkit-box-shadow: 0 2px 0 0 hsl(35, 11%, 61%);
+  box-shadow: 0 2px 0 0 hsl(35, 11%, 61%);
+}
+
+.btn-basic-3 {
+  background: hsl(268, 47%, 21%);
+  box-shadow: 0 4px 0 0 hsl(290, 70%, 36%);
+  -webkit-box-shadow: 0 4px 0 0 hsl(290, 70%, 36%);
+  color: hsl(52, 100%, 62%);
+}
+
+.btn-basic-3:active {
+  -webkit-box-shadow: 0 2px 0 0 hsl(290, 70%, 36%);
+  box-shadow: 0 2px 0 0 hsl(290, 70%, 36%);
+}
+
+
+.btn-strong-1 {
+  background: hsl(6, 63%, 50%);
+  box-shadow: 0 4px 0 0 hsl(6, 70%, 34%);
+  -webkit-box-shadow: 0 4px 0 0 hsl(6, 70%, 34%);
+  color: hsl(0, 0%, 100%);
+}
+
+.btn-strong-1:active {
+  -webkit-box-shadow: 0 2px 0 0 hsl(6, 70%, 34%);
+  box-shadow: 0 2px 0 0 hsl(6, 70%, 34%);
+}
+
+.btn-strong-2 {
+  background: hsl(25, 98%, 40%);
+  box-shadow: 0 4px 0 0 hsl(25, 99%, 27%);
+  -webkit-box-shadow: 0 4px 0 0 hsl(25, 99%, 27%);
+  color: hsl(0, 0%, 100%);
+}
+
+.btn-strong-2:active {
+  -webkit-box-shadow: 0 2px 0 0 hsl(25, 99%, 27%);
+  box-shadow: 0 2px 0 0 hsl(25, 99%, 27%);
+}
+
+.btn-strong-3 {
+  background: hsl(176, 100%, 44%);
+  box-shadow: 0 4px 0 0 hsl(177, 92%, 70%);
+  -webkit-box-shadow: 0 4px 0 0 hsl(177, 92%, 70%);
+  color: hsl(198, 20%, 13%);
+}
+
+.btn-strong-3:active {
+  -webkit-box-shadow: 0 2px 0 0 hsl(177, 92%, 70%);
+  box-shadow: 0 2px 0 0 hsl(177, 92%, 70%);
+}
+
+
+.btn-accent-1 {
+  background: hsl(225, 21%, 49%);
+  box-shadow: 0 4px 0 0 hsl(224, 28%, 35%);
+  -webkit-box-shadow: 0 4px 0 0 hsl(224, 28%, 35%);
+  color: hsl(0, 0%, 100%);
+}
+
+.btn-accent-1:active {
+  -webkit-box-shadow: 0 2px 0 0 hsl(224, 28%, 35%);
+  box-shadow: 0 2px 0 0 hsl(224, 28%, 35%);
+}
+
+.btn-accent-2 {
+  background: hsl(185, 42%, 37%);
+  box-shadow: 0 4px 0 0 hsl(185, 58%, 25%);
+  -webkit-box-shadow: 0 4px 0 0 hsl(185, 58%, 25%);
+  color: hsl(0, 0%, 100%);
+}
+
+.btn-accent-2:active {
+  -webkit-box-shadow: 0 2px 0 0 hsl(185, 58%, 25%);
+  box-shadow: 0 2px 0 0 hsl(185, 58%, 25%);
+}
+
+.btn-accent-3 {
+  background: hsl(281, 89%, 26%);
+  box-shadow: 0 4px 0 0 hsl(285, 91%, 52%);
+  -webkit-box-shadow: 0 4px 0 0 hsl(285, 91%, 52%);
+  color: hsl(52, 100%, 62%);
+}
+
+.btn-accent-3:active {
+  -webkit-box-shadow: 0 2px 0 0 hsl(285, 91%, 52%);
+  box-shadow: 0 2px 0 0 hsl(285, 91%, 52%);
+}
+
+/*BACKGROUNDS*/
+
+.background-1 {
+  background: hsl(223, 31%, 20%);
+}
+
+.background-2 {
+  background: hsl(0, 5%, 81%);
+}
+
+.background-3 {
+  background: hsl(268, 71%, 12%);
+}

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {InputValueService} from "../services/input-value.service";
+import {InputValueService} from "../../services/input-value.service";
 
 @Component({
   selector: 'app-button',

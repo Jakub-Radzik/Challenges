@@ -20,16 +20,16 @@ export class PadComponent implements OnInit {
     },
     keys: {
       basic: {
-        background: 'hsl(225, 21%, 49%)',
-        shadow: 'hsl(224, 28%, 35%)'
+        background: 'hsl(30, 25%, 89%)',
+        shadow: 'hsl(28, 16%, 65%)'
       },
       strongAccent: {
         background: 'hsl(6, 63%, 50%)',
         shadow: 'hsl(6, 70%, 34%)'
       },
       lightAccent: {
-        background: 'hsl(30, 25%, 89%)',
-        shadow: 'hsl(28, 16%, 65%)'
+        background: 'hsl(225, 21%, 49%)',
+        shadow: 'hsl(224, 28%, 35%)'
       },
       toggler: {
         color: 'hsl(6, 63%, 50%)'
@@ -38,7 +38,7 @@ export class PadComponent implements OnInit {
     text: {
       color1: 'hsl(221, 14%, 31%)',
       color2: '',
-      text: 'hsl(0, 0, 100%)'
+      text: 'hsl(0, 0%, 100%)'
     }
   };
 
@@ -63,6 +63,12 @@ export class PadComponent implements OnInit {
   public ZERO = "4 / 2 / 5 / 3";
 
   //todo: color theme service
+  //button class names:
+  public basic: string = `btn-basic-${this.theme.togglerPosition}`
+  public strong: string = `btn-strong-${this.theme.togglerPosition}`
+  public accent: string = `btn-accent-${this.theme.togglerPosition}`
+  //background
+  public background: string = `background-${this.theme.togglerPosition}`
 
   constructor() {
     InputValueService._input.subscribe({
@@ -70,13 +76,16 @@ export class PadComponent implements OnInit {
     })
 
     ThemeEngineService.currentSet.subscribe({
-      next: (value: any) => this.theme = value
+      next: (value: any) => {
+        this.theme = value
+        this.basic = `btn-basic-${this.theme.togglerPosition}`
+        this.strong = `btn-strong-${this.theme.togglerPosition}`
+        this.accent = `btn-accent-${this.theme.togglerPosition}`
+        this.background = `background-${this.theme.togglerPosition}`
+      }
     })
   }
 
-  public changeTheme(){
-    ThemeEngineService.getNextThemeSet();
-  }
 
   ngOnInit(): void {
   }
