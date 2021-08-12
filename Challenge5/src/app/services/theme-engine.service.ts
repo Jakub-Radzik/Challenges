@@ -107,9 +107,17 @@ export class ThemeEngineService {
   private static incrementer = 1;
 
   public static currentSet:BehaviorSubject<ThemeSet> = new BehaviorSubject<ThemeSet>(ThemeEngineService.set1);
+  public static togglerPosition:BehaviorSubject<number> = new BehaviorSubject<number>(1);
 
   public static getNextThemeSet(){
-    this.currentSet.next(ThemeEngineService.sets[ThemeEngineService.incrementer++ % 3])
+    if(this.incrementer===3){
+      this.incrementer = 1
+    }else{
+      this.incrementer++;
+    }
+    console.log(this.incrementer)
+    this.currentSet.next(ThemeEngineService.sets[ThemeEngineService.incrementer%3])
+    this.togglerPosition.next(this.incrementer);
   }
 
   constructor() {

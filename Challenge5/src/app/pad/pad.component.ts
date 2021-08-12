@@ -1,7 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {InputValueService} from "../services/input-value.service";
 import {ThemeEngineService} from "../services/theme-engine.service";
-import {ThemeSet} from "../interfaces/ThemeSet";
 
 @Component({
   selector: 'app-pad',
@@ -9,38 +8,6 @@ import {ThemeSet} from "../interfaces/ThemeSet";
   styleUrls: ['./pad.component.css']
 })
 export class PadComponent implements OnInit {
-
-  public theme: ThemeSet = {
-    togglerPosition: 1,
-    background: {
-      main: 'hsl(222, 26%, 31%)',
-      toggle: 'hsl(223, 31%, 20%)',
-      keypad: 'hsl(223, 31%, 20%)',
-      screen: 'hsl(224, 36%, 15%)'
-    },
-    keys: {
-      basic: {
-        background: 'hsl(30, 25%, 89%)',
-        shadow: 'hsl(28, 16%, 65%)'
-      },
-      strongAccent: {
-        background: 'hsl(6, 63%, 50%)',
-        shadow: 'hsl(6, 70%, 34%)'
-      },
-      lightAccent: {
-        background: 'hsl(225, 21%, 49%)',
-        shadow: 'hsl(224, 28%, 35%)'
-      },
-      toggler: {
-        color: 'hsl(6, 63%, 50%)'
-      },
-    },
-    text: {
-      color1: 'hsl(221, 14%, 31%)',
-      color2: '',
-      text: 'hsl(0, 0%, 100%)'
-    }
-  };
 
   //GRID AREAS:
   public RESET = "5 / 1 / 6 / 3";
@@ -62,26 +29,26 @@ export class PadComponent implements OnInit {
   public DOT = "4 / 1 / 5 / 2";
   public ZERO = "4 / 2 / 5 / 3";
 
-  //todo: color theme service
+  public togglerPosition = 1;
+
   //button class names:
-  public basic: string = `btn-basic-${this.theme.togglerPosition}`
-  public strong: string = `btn-strong-${this.theme.togglerPosition}`
-  public accent: string = `btn-accent-${this.theme.togglerPosition}`
+  public basic: string = `btn-basic-${this.togglerPosition}`
+  public strong: string = `btn-strong-${this.togglerPosition}`
+  public accent: string = `btn-accent-${this.togglerPosition}`
   //background
-  public background: string = `background-${this.theme.togglerPosition}`
+  public background: string = `background-${this.togglerPosition}`
 
   constructor() {
     InputValueService._input.subscribe({
       next: (value: any) => console.log(value)
     })
 
-    ThemeEngineService.currentSet.subscribe({
+    ThemeEngineService.togglerPosition.subscribe({
       next: (value: any) => {
-        this.theme = value
-        this.basic = `btn-basic-${this.theme.togglerPosition}`
-        this.strong = `btn-strong-${this.theme.togglerPosition}`
-        this.accent = `btn-accent-${this.theme.togglerPosition}`
-        this.background = `background-${this.theme.togglerPosition}`
+        this.basic = `btn-basic-${value}`
+        this.strong = `btn-strong-${value}`
+        this.accent = `btn-accent-${value}`
+        this.background = `background-${value}`
       }
     })
   }

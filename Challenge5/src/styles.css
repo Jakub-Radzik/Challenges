@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap');
 
+html, body {
+  margin: 0;
+}
+
 /*BUTTONS*/
 [class^=btn-]:active {
   transform: translateY(5px);
@@ -130,3 +134,31 @@
 .background-3 {
   background: hsl(268, 71%, 12%);
 }
+
+.background-display-1 {
+  background: hsl(224, 36%, 15%);
+  color: hsl(0,0%,100%);
+}
+
+.background-display-2 {
+  background: hsl(0, 0%, 93%);
+  color: hsl(60, 10%, 19%);
+}
+
+.background-display-3 {
+  background: hsl(268, 71%, 12%);
+  color: hsl(52, 100%, 62%);
+}
+
+.background-app-1 {
+  background: hsl(222, 26%, 31%);
+}
+
+.background-app-2 {
+  background: hsl(0, 0%, 90%);
+}
+
+.background-app-3 {
+  background: hsl(268, 75%, 9%);
+}
+

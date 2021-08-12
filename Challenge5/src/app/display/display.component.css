@@ -1,0 +1,11 @@
+div{
+  border: 1px solid black;
+  height: 90px;
+  width: content-box;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  font-size: 50px;
+  font-family: 'Spartan', sans-serif;
+  text-align: right;
+  padding: 30px 10px 0 10px;
+}
