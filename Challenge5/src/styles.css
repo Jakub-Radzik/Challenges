@@ -173,3 +173,32 @@ html, body {
 .font-color-3 {
   color: hsl(52, 100%, 62%);
 }
+
+
+.toggler-position-1 {
+  left: 0;
+  background: hsl(6, 63%, 50%);
+}
+
+.toggler-position-2 {
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: hsl(25, 98%, 40%);
+}
+
+.toggler-position-3 {
+  right: 0;
+  background: hsl(176, 100%, 44%);
+}
+
+.toggler-background-1 {
+  background: hsl(223, 31%, 20%);
+}
+
+.toggler-background-2 {
+  background: hsl(0, 5%, 81%);
+}
+
+.toggler-background-3 {
+  background: hsl(268, 71%, 12%);
+}

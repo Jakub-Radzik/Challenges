@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ThemeEngineService} from "../../../services/theme-engine.service";
 
 @Component({
@@ -8,7 +8,14 @@ import {ThemeEngineService} from "../../../services/theme-engine.service";
 })
 export class SwitchComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  public position: string = "";
+
+  @Input()
+  public background: string = "";
+
+  constructor() {
+  }
 
   public changeTheme() {
     ThemeEngineService.getNextThemeSet();
