@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ThemeEngineService} from "../services/theme-engine.service";
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public togglerPosition: number = 1;
+  public fontColor: string = "font-color-1"
+
+  constructor() {
+    ThemeEngineService.togglerPosition.subscribe({
+      next: (value: any) => {
+        this.togglerPosition = value
+        this.fontColor = `font-color-${value}`
+      }
+    })
+  }
 
   ngOnInit(): void {
   }

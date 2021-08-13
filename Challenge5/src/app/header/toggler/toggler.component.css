@@ -1,0 +1,23 @@
+.wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper > div{
+  display: flex;
+}
+
+.row > div {
+  min-width: 80px;
+}
+
+.numbers{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+button {
+  width: 100%;
+}

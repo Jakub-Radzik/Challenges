@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {ThemeEngineService} from "../../services/theme-engine.service";
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-toggler',
@@ -9,10 +8,6 @@ import {ThemeEngineService} from "../../services/theme-engine.service";
 export class TogglerComponent implements OnInit {
 
   constructor() { }
-
-  public changeTheme() {
-    ThemeEngineService.getNextThemeSet();
-  }
 
   ngOnInit(): void {
   }

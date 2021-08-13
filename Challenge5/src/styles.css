@@ -137,7 +137,7 @@ html, body {
 
 .background-display-1 {
   background: hsl(224, 36%, 15%);
-  color: hsl(0,0%,100%);
+  color: hsl(0, 0%, 100%);
 }
 
 .background-display-2 {
@@ -162,3 +162,14 @@ html, body {
   background: hsl(268, 75%, 9%);
 }
 
+.font-color-1 {
+  color: hsl(0, 0%, 100%);
+}
+
+.font-color-2 {
+  color: hsl(60, 10%, 19%);
+}
+
+.font-color-3 {
+  color: hsl(52, 100%, 62%);
+}
