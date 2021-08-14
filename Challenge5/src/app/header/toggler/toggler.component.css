@@ -1,23 +1,37 @@
-.wrapper{
+.wrapper {
   display: flex;
   flex-direction: column;
 }
 
-.wrapper > div{
+.wrapper > div {
   display: flex;
 }
 
 .row > div {
-  min-width: 80px;
+  min-width: 90px;
+  padding: 5px;
 }
 
-.numbers{
+.numbers {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 
+.numbers > span:first-child {
+  margin: 0 0 0 7px;
+}
+
+
+.numbers > span:last-child {
+  margin: 0 7px 0 0;
+}
+
 button {
   width: 100%;
+}
+
+.title {
+  margin: 16px auto 0 auto;
 }

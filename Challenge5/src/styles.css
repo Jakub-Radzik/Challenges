@@ -5,6 +5,16 @@ html, body {
   margin: 0;
 }
 
+* {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  transition-duration: 0.5s;
+}
+
 /*BUTTONS*/
 [class^=btn-]:active {
   transform: translateY(5px);
@@ -187,18 +197,21 @@ html, body {
 }
 
 .toggler-position-3 {
-  right: 0;
+  left: 70%;
   background: hsl(176, 100%, 44%);
 }
 
 .toggler-background-1 {
   background: hsl(223, 31%, 20%);
+  border-color: hsl(223, 31%, 20%) !important; /*important cuz it is overwritten by .font-color*/
 }
 
 .toggler-background-2 {
   background: hsl(0, 5%, 81%);
+  border-color: hsl(0, 5%, 81%) !important;
 }
 
 .toggler-background-3 {
   background: hsl(268, 71%, 12%);
+  border-color: hsl(268, 71%, 12%) !important;
 }
