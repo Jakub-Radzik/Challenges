@@ -21,6 +21,12 @@ html, body {
   height: 75px;
 }
 
+@media (max-width: 512px) {
+  [class^=btn-]:active {
+    height: 35px;
+  }
+}
+
 .btn-basic-1 {
   background: hsl(30, 25%, 89%);
   box-shadow: 0 4px 0 0 hsl(28, 16%, 65%);

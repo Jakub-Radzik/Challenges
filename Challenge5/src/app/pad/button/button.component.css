@@ -13,3 +13,10 @@ div{
   align-items: center;
 }
 
+@media (max-width: 512px) {
+  div {
+    font-size: 20px;
+    height: 40px;
+  }
+}
+
