@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { InputValueService } from './input-value.service';
+import {InputValueService} from './input-value.service';
 
 describe('InputValueService', () => {
   let service: InputValueService;

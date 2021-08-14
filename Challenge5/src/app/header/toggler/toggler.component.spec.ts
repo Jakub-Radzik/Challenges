@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TogglerComponent } from './toggler.component';
+import {TogglerComponent} from './toggler.component';
 
 describe('TogglerComponent', () => {
   let component: TogglerComponent;

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PadComponent } from './pad.component';
+import {PadComponent} from './pad.component';
 
 describe('PadComponent', () => {
   let component: PadComponent;
