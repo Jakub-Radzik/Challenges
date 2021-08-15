@@ -1,7 +1,13 @@
-header{
+header {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   font-family: 'Spartan', sans-serif;
+}
+
+@media (max-width: 512px) {
+  header {
+    font-size: 15px;
+  }
 }

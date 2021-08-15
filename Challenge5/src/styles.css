@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap');
 
-html, body {
+html, body, h1 {
   margin: 0;
 }
 
@@ -12,18 +12,21 @@ html, body {
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none;
-  transition-duration: 0.5s;
+  transition-duration: 0.2s;
 }
 
 /*BUTTONS*/
 [class^=btn-]:active {
+  height: 80px;
   transform: translateY(5px);
-  height: 75px;
+  transition-duration: 0.05s;
 }
 
 @media (max-width: 512px) {
   [class^=btn-]:active {
-    height: 35px;
+    height: 40px;
+    transform: translateY(5px);
+    transition-duration: 0.05s;
   }
 }
 
