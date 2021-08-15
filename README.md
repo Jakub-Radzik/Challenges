@@ -39,5 +39,15 @@
 ###  Enjoy, done
 <img src="https://github.com/radzikoska123/Challenges/blob/master/Challenge4/challenge4/rest-countries-api-with-color-theme-switcher-master/design/desktop-preview.jpg" alt="preview-4 "/>
 
+## <a href="https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29">Challenge 5</a> - Calculator app -  🔵🔵🔵⚪️⚪️ 
+<div align="left">
+<img src="https://github.com/radzikoska123/radzikoska123/blob/main/icons/angular.svg" alt="angular" width="30"/> 
+<img src="https://github.com/radzikoska123/radzikoska123/blob/main/icons/html.png" alt="html" width="30"/> 
+<img src="https://github.com/radzikoska123/radzikoska123/blob/main/icons/css-3.png" alt="css" width="30"/> 
+</div>
+
+###  Enjoy, done - <a href="https://radzikoska123.github.io/challenge5host/">Deployment</a>
+<img src="https://github.com/radzikoska123/Challenges/blob/master/Challenge5/calculator-app-main/design/desktop-preview.jpg" alt="preview-5 "/>
+
 
 
