@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {InputValueService} from "../services/input-value.service";
 import {ThemeEngineService} from "../services/theme-engine.service";
 
 @Component({
@@ -39,9 +38,9 @@ export class PadComponent implements OnInit {
   public background: string = `background-${this.togglerPosition}`
 
   constructor() {
-    InputValueService._input.subscribe({
-      next: (value: any) => console.log(value)
-    })
+    // InputValueService._input.subscribe({
+    //   next: (value: any) => console.log(value)
+    // })
 
     ThemeEngineService.togglerPosition.subscribe({
       next: (value: any) => {

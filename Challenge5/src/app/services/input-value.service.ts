@@ -1,38 +1,55 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
+import {Calc} from 'calc-js';
 
 @Injectable({
   providedIn: 'root',
 })
 export class InputValueService {
 
-  private static myJoin(array: string[], start: number, end: number) {
-    if (!start) start = 0;
-    if (!end) end = this.length - 1;
-    end++;
-    return array.slice(start, end);
-  };
+  public static chars: string[] = ["+", "-", "*", "/"];
 
   private static divideIntoArray(str: string): string[] {
+    let part: string = "";
     let resultArray: string[] = [];
     for (let i = 0; i < str.length; i++) {
-      resultArray.push(str[i]);
-    }
-
-    let charsIndexes: number[] = [0];
-    for (let i = 0; i < resultArray.length; i++) {
-      if (resultArray[i] === "+" || resultArray[i] === "-" || resultArray[i] === "/" || resultArray[i] === "*") {
-        charsIndexes.push(i);
+      if (this.chars.includes(str[i])) {
+        resultArray.push(part)
+        resultArray.push(str[i])
+        part = "";
+      } else {
+        part += str[i];
       }
     }
-    charsIndexes.push(resultArray.length-1)
-
-    // for (let i = 0; i < charsIndexes.length-1; i++) {
-    //   resultArray = this.myJoin(resultArray, charsIndexes[i], charsIndexes[i+1])
-    // }
-
-
+    resultArray.push(part);
     return resultArray;
+  }
+
+  private static calcJSvalue(resultArray: string[]): number{
+    let result: Calc = new Calc(2137);
+    for (let i = 0; i < resultArray.length; i++) {
+      if (i === 0) {
+        result = new Calc(parseFloat(resultArray[i]))
+      } else {
+        switch (resultArray[i]) {
+          case "+":
+            result?.sum(parseFloat(resultArray[i + 1]));
+            break;
+          case "-":
+            result?.minus(parseFloat(resultArray[i + 1]));
+            break;
+          case "*":
+            result?.multiply(parseFloat(resultArray[i + 1]));
+            break;
+          case "/":
+            result?.divide(parseFloat(resultArray[i + 1]));
+            break;
+          default:
+        }
+        i++;
+      }
+    }
+    return result?.finish();
   }
 
   public static _input = new BehaviorSubject<string>('');
@@ -52,9 +69,7 @@ export class InputValueService {
   }
 
   public static calculate(): void {
-    let arr = this.divideIntoArray(this._input.getValue());
-    console.log(arr)
-    let currVal: string = this._input.getValue();
-    this._input.next(eval(currVal).toString());
+    let result = this.calcJSvalue(this.divideIntoArray(this._input.getValue()));
+    this._input.next(result.toString());
   }
 }
