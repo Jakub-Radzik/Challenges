@@ -25,11 +25,19 @@ export class InputValueService {
     return resultArray;
   }
 
-  private static calcJSvalue(resultArray: string[]): number{
-    let result: Calc = new Calc(2137);
+  private static calcJSvalue(resultArray: string[]): number {
+
+    const localConfig = {
+      throwNaN: true,
+      throwInfinite: true,
+      throwUnsafeNumber: false
+    }
+
+    let result: Calc = new Calc(2137); // ;)
+
     for (let i = 0; i < resultArray.length; i++) {
       if (i === 0) {
-        result = new Calc(parseFloat(resultArray[i]))
+        result = new Calc(parseFloat(resultArray[i]), localConfig)
       } else {
         switch (resultArray[i]) {
           case "+":
@@ -49,7 +57,14 @@ export class InputValueService {
         i++;
       }
     }
-    return result?.finish();
+
+    try{
+      return result?.finish();
+    }catch (e) {
+      return 0;
+      // TODO: weź coś z tym kurwa zrób
+      //Infinity and NaN
+    }
   }
 
   public static _input = new BehaviorSubject<string>('');

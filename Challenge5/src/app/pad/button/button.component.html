@@ -1,1 +1,1 @@
-<div (click)="onButtonClick()">{{symbol}}</div>
+<button (click)="onButtonClick()" [ngClass]="btnClass" [disabled]="isDisabled">{{symbol}}</button>

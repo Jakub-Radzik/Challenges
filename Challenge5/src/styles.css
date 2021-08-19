@@ -22,6 +22,11 @@ html, body, h1 {
   transition-duration: 0.05s;
 }
 
+button:disabled{
+  transition-delay: 0.2s;
+  -webkit-filter: brightness(70%);
+}
+
 @media (max-width: 512px) {
   [class^=btn-]:active {
     height: 40px;
