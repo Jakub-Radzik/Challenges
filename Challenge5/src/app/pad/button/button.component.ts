@@ -32,12 +32,8 @@ export class ButtonComponent implements OnInit {
         } else {
           this.isDisabled = false;
 
-
-          if(this.operator.includes(this.lastChar(value)) && this.operatorAndDot.includes(this.symbol)){
-            this.isDisabled = true;
-          }else{
-            this.isDisabled = false;
-          }
+          // disabled if operator is last and button is operator or dot
+          this.isDisabled = this.operator.includes(this.lastChar(value)) && this.operatorAndDot.includes(this.symbol);
 
 
         }

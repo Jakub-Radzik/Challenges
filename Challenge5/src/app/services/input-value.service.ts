@@ -68,8 +68,12 @@ export class InputValueService {
   }
 
   public static _input = new BehaviorSubject<string>('');
+  public static _currentNumber = new BehaviorSubject<string>('0')
 
   public static insertToInput(value: string): void {
+    if (this.chars.includes(value)) {
+
+    }
     this._input.next(this._input.getValue().concat(value));
   }
 
@@ -78,7 +82,7 @@ export class InputValueService {
   }
 
   public static removeLastChar(): void {
-    let currVal: string = this._input.getValue();
+    let currVal: string = this._currentNumber.getValue();
     let valToSet: string = String(currVal.substr(0, currVal.length - 1))
     this._input.next(valToSet)
   }

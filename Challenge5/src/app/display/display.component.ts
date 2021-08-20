@@ -10,11 +10,17 @@ import {ThemeEngineService} from "../services/theme-engine.service";
 export class DisplayComponent implements OnInit {
 
   public value: string = "";
+  public currentNumber: string = "0";
   public togglerPosition = 1;
 
+  //TODO: two displays like windows 10 calculator DO IT !
   constructor() {
     InputValueService._input.subscribe({
       next: (value: any) => this.value = value
+    })
+
+    InputValueService._currentNumber.subscribe({
+      next: (value: any) => this.currentNumber = value
     })
 
     ThemeEngineService.togglerPosition.subscribe({
