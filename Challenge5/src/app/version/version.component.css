@@ -1,0 +1,22 @@
+div {
+  width: 50px;
+  height: 40px;
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  background: rgba(255, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-family: 'Spartan', sans-serif;
+  color: rgba(255, 255, 255, 0.83);
+}
+
+@media (max-width: 512px) {
+  div {
+    left: 0;
+    top: 0;
+    border-radius: 0 0 10px 0;
+  }
+}

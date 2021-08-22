@@ -1,18 +1,34 @@
-div {
-  height: 90px;
+.display {
   width: content-box;
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
   border-radius: 10px;
-  overflow: hidden;
   font-size: 50px;
   font-family: 'Spartan', sans-serif;
   text-align: right;
-  padding: 30px 10px 0 10px;
+  padding: 10px;
+}
+
+.wrapper { /*value*/
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+}
+
+.wrapper:last-child { /*current value*/
+  width: 100%;
+  margin-top: 10px;
+}
+
+.overflower {
+  float: right;
 }
 
 @media (max-width: 512px) {
-  div {
+  .display {
     font-size: 30px;
-    height: 60px;
+  }
+
+  .wrapper { /*value*/
+    height: 35px;
   }
 }

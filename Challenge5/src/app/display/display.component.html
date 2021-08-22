@@ -1,4 +1,13 @@
-<div [ngClass]="background">
-  <div>{{value}}</div>
-  <div>{{currentNumber}}</div>
+<div [ngClass]="background" class="display">
+  <div class="wrapper">
+    <div class="overflower">
+      {{value}}
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <div class="overflower">
+      {{currentNumber}}
+    </div>
+  </div>
 </div>

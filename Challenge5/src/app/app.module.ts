@@ -10,6 +10,7 @@ import {InputValueService} from "./services/input-value.service";
 import {ThemeEngineService} from "./services/theme-engine.service";
 import {TogglerComponent} from './header/toggler/toggler.component';
 import {SwitchComponent} from './header/toggler/switch/switch.component';
+import {VersionComponent} from './version/version.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {SwitchComponent} from './header/toggler/switch/switch.component';
     DisplayComponent,
     HeaderComponent,
     TogglerComponent,
-    SwitchComponent
+    SwitchComponent,
+    VersionComponent
   ],
   imports: [
     BrowserModule

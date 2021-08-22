@@ -24,22 +24,11 @@ export class ButtonComponent implements OnInit {
   public btnClass: string = "";
 
   constructor() {
-    InputValueService._input.subscribe({
+    InputValueService._dotCount.subscribe({
       next: (value: any) => {
-
-        if (this.symbol === "." && this.lastChar(value) === ".") {
+        if (this.symbol === "." && value === 1) {
           this.isDisabled = true;
-        } else {
-          this.isDisabled = false;
-
-          // disabled if operator is last and button is operator or dot
-          this.isDisabled = this.operator.includes(this.lastChar(value)) && this.operatorAndDot.includes(this.symbol);
-
-
         }
-
-
-
       }
     })
   }
