@@ -8,7 +8,7 @@ import {Component, OnInit} from '@angular/core';
 export class VersionComponent implements OnInit {
 
   //version in package json
-  public version: string = "1.1.0";
+  public version: string = "1.1.1";
 
   constructor() {
   }

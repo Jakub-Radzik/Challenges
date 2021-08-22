@@ -120,6 +120,12 @@ export class InputValueService {
         }
       }
     }
+
+    if (this._currentNumber.getValue().includes(".")) {
+      this._dotCount.next(1);
+    } else {
+      this._dotCount.next(0);
+    }
   }
 
   public static deleteInput(): void {

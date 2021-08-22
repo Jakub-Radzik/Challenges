@@ -24,13 +24,15 @@ export class ButtonComponent implements OnInit {
   public btnClass: string = "";
 
   constructor() {
-    InputValueService._dotCount.subscribe({
-      next: (value: any) => {
-        if (this.symbol === "." && value === 1) {
-          this.isDisabled = true;
-        }
-      }
-    })
+    // InputValueService._dotCount.subscribe({
+    //   next: (value: any) => {
+    //     // if (this.symbol === "." && value === 1) {
+    //     //   this.isDisabled = true;
+    //     // }else{
+    //     //   this.isDisabled = false;
+    //     // }
+    //   }
+    // })
   }
 
   public onButtonClick() {
