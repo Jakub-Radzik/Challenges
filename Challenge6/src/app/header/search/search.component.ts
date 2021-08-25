@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import ValidateIPaddress from "../../utils/ipAddressValidator";
 
 @Component({
   selector: 'app-search',
@@ -7,7 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  public placeholderText = 'Search for any IP address or domain';
+  public searchValue = "";
+  public isValid: boolean = false;
+
+  constructor() {
+  }
+
+  public inputChange(value: string) {
+    console.log(value)
+    this.isValid = ValidateIPaddress(this.searchValue);
+    console.log(ValidateIPaddress(this.searchValue))
+  }
+  //TODO: repair validation
 
   ngOnInit(): void {
   }
