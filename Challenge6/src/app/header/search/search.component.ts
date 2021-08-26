@@ -28,6 +28,7 @@ export class SearchComponent implements OnInit {
     }
   }
 
+  //TODO: repair validation
   public inputChange(value: string) {
     this.searchValue = value;
     console.log(value)
@@ -35,7 +36,6 @@ export class SearchComponent implements OnInit {
     // console.log(ValidateIPaddress(this.searchValue))
   }
 
-  //TODO: repair validation
 
   ngOnInit(): void {
   }

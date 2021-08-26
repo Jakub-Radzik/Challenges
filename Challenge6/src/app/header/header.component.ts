@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {searchResult} from "../interfaces/searchResult";
-import {IpGeolocationService} from "../services/ip-geolocation.service";
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,16 +7,8 @@ import {IpGeolocationService} from "../services/ip-geolocation.service";
 })
 export class HeaderComponent implements OnInit {
 
-  public data: searchResult | undefined;
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }
-
-  setData(data: searchResult){
-    this.data = data;
-  }
-
-
 }

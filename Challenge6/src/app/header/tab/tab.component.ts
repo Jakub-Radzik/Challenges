@@ -9,9 +9,12 @@ import {searchResult} from "../../interfaces/searchResult";
 })
 export class TabComponent implements OnInit {
 
-  @Input() data: searchResult | undefined;
+  public data: searchResult | undefined;
 
   constructor() {
+    IpGeolocationService.data.subscribe({
+      next: (value: any) => this.data = value
+    })
   }
 
   ngOnInit(): void {

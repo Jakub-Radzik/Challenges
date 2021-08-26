@@ -7,7 +7,13 @@ div.tab{
   transform: translateY(60px);
   border-radius: 20px;
   padding: 10px 0;
+  z-index: 1000 !important;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: -25px auto 0 auto;
 }
+
 
 div.tab > div {
   width: 25%;
