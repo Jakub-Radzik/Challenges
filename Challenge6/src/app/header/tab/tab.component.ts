@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {IpGeolocationService} from "../../services/ip-geolocation.service";
+import {searchResult} from "../../interfaces/searchResult";
 
 @Component({
   selector: 'app-tab',
@@ -7,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabComponent implements OnInit {
 
+  @Input() data: searchResult | undefined;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

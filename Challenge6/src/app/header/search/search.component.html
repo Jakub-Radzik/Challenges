@@ -1,6 +1,6 @@
 <div [ngClass]="'container'">
   <input type="text" #input [placeholder]="placeholderText" (keyup)="inputChange(input.value)">
-  <div [ngClass]="{'arrowBox':true, 'disabled':!isValid}">
+  <div [ngClass]="{'arrowBox':true, 'disabled':!isValid}" (click)="onSubmit()">
     <img src="assets/icon-arrow.svg" alt="arrow">
   </div>
 </div>

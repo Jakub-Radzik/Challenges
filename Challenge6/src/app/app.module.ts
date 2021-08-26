@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { MapComponent } from './map/map.component';
 import { SearchComponent } from './header/search/search.component';
 import { TabComponent } from './header/tab/tab.component';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TabComponent } from './header/tab/tab.component';
     TabComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
