@@ -46,7 +46,7 @@
 <img src="https://github.com/radzikoska123/radzikoska123/blob/main/icons/css-3.png" alt="css" width="30"/> 
 </div>
 
-###  Enjoy, done - <a href="https://radzikoska123.github.io/ip-tracker/">Deployment</a>
+###  Enjoy, done - <a href="https://radzikoska123.github.io/challenge5host/">Deployment</a>
 <img src="https://github.com/radzikoska123/Challenges/blob/master/Challenge5/calculator-app-main/design/desktop-preview.jpg" alt="preview-5 "/>
 
 ## <a href="https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29">Challenge 6</a> - IP Tracker -  🔵🔵🔵⚪️⚪️ 
@@ -56,7 +56,7 @@
 <img src="https://github.com/radzikoska123/radzikoska123/blob/main/icons/css-3.png" alt="css" width="30"/> 
 </div>
 
-###  Enjoy, done - <a href="https://radzikoska123.github.io/challenge5host/">Deployment</a>
+###  Enjoy, done - <a href="https://radzikoska123.github.io/ip-tracker/">Deployment</a>
 <img src="https://github.com/radzikoska123/Challenges/blob/master/Challenge6/src/design/desktop-preview.jpg" alt="preview-6"/>
 
 
