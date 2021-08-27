@@ -48,3 +48,14 @@ img{
   width: 20%;
   transition-duration: 0.3s;
 }
+
+@media (max-width: 600px) {
+  input{
+    width: 220px;
+    font-size: 13px;
+  }
+
+  .arrowBox{
+    width: 50px;
+  }
+}

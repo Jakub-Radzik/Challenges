@@ -5,7 +5,7 @@
   </div>
   <div id="location" class="info">
     <h4>location</h4>
-    <h2>{{data.location.city}}, {{data.location.country}}</h2>
+    <h2 *ngIf="data.location.city && data.location.country">{{data.location.city}}, {{data.location.country}}</h2>
   </div>
   <div id="timezone" class="info">
     <h4>timezone</h4>

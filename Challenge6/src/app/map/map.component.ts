@@ -38,10 +38,17 @@ export class MapComponent implements OnInit, AfterViewInit {
       next: value => {
         this.data=value;
         if(this.map){
-          let center: LatLngTuple = [value.location.lat, value.location.lng];
+          let lat = value.location.lat;
+          let lng = value.location.lng;
+
+          let center: LatLngTuple = [lat, lng];
           let name: string = `${value.location.city}, ${value.location.country}`;
-          this.map.flyTo(center, 13);
-          L.marker(center, {title:name}).addTo(this.map);
+          if(lat === 0 && lng === 0){
+            this.map.flyTo([50, 0], 3);
+          }else{
+            this.map.flyTo(center, 13);
+            L.marker(center, {title:name}).addTo(this.map);
+          }
         }
       }
     })
