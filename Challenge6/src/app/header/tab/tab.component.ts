@@ -10,10 +10,17 @@ import {searchResult} from "../../interfaces/searchResult";
 export class TabComponent implements OnInit {
 
   public data: searchResult | undefined;
+  public showLoader: boolean = false;
 
   constructor() {
     IpGeolocationService.data.subscribe({
-      next: (value: any) => this.data = value
+      next: (value: searchResult) => {
+        this.data = value
+        IpGeolocationService.loading.next(false);
+      }
+    })
+    IpGeolocationService.loading.subscribe({
+      next: (value: boolean) => this.showLoader = value
     })
   }
 

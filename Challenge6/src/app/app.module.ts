@@ -7,6 +7,8 @@ import { MapComponent } from './map/map.component';
 import { SearchComponent } from './header/search/search.component';
 import { TabComponent } from './header/tab/tab.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { MediaLinkComponent } from './other/media-link/media-link.component';
+import { LoaderComponent } from './other/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     HeaderComponent,
     MapComponent,
     SearchComponent,
-    TabComponent
+    TabComponent,
+    MediaLinkComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

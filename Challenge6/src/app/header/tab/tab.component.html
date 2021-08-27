@@ -1,4 +1,4 @@
-<div class="tab" *ngIf="data">
+<div class="tab" *ngIf="data && !showLoader">
   <div id="ipAddress" class="info">
     <h4>ip address</h4>
     <h2>{{data.ip}}</h2>
@@ -16,3 +16,4 @@
     <h2>UTC {{data.isp}}</h2>
   </div>
 </div>
+<app-loader *ngIf="showLoader"></app-loader>

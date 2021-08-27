@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import ValidateIPaddress from "../../utils/ipAddressValidator";
 import {IpGeolocationService} from "../../services/ip-geolocation.service";
 
@@ -7,28 +7,32 @@ import {IpGeolocationService} from "../../services/ip-geolocation.service";
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
 })
-export class SearchComponent implements OnInit {
-
+export class SearchComponent implements AfterViewInit {
 
   public placeholderText = 'Search for any IP address';
   public searchValue = "";
   public isValid: boolean = false;
+  @ViewChild('input') el: ElementRef | undefined;
 
-  constructor(private ipGeoloaction: IpGeolocationService) {
+  constructor(private ipGeolocationService: IpGeolocationService) {
   }
+
+  ngAfterViewInit(): void {
+    if (this.el) {
+      this.el.nativeElement.focus();
+    }
+  }
+
 
   public onSubmit() {
     if (this.isValid) {
-      this.ipGeoloaction.getLocationByIP(this.searchValue);
+      this.ipGeolocationService.getLocationByIP(this.searchValue);
     }
   }
 
   public inputChange(value: string) {
     this.searchValue = value;
     this.isValid = ValidateIPaddress(this.searchValue);
-  }
-
-  ngOnInit(): void {
   }
 
 }

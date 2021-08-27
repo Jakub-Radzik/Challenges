@@ -10,11 +10,13 @@ import {ipApiKey} from "../../environments/apiKeys";
 export class IpGeolocationService {
 
   public static data: Subject<searchResult> = new Subject();
+  public static loading: Subject<boolean> = new Subject();
 
   constructor(private httpClient: HttpClient) {
   }
 
   getLocationByIP(ip: string): Observable<searchResult>{
+    IpGeolocationService.loading.next(true);
     let url = `https://geo.ipify.org/api/v1?apiKey=${ipApiKey}&ipAddress=${ip}`;
 
     let temp = this.httpClient.get<searchResult>(url);

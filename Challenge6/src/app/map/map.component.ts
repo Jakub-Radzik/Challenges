@@ -32,7 +32,7 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
 
-  constructor(private ipGeolocation: IpGeolocationService) {
+  constructor() {
     IpGeolocationService.data.subscribe({
       next: value => {
         this.data=value;
