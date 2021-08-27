@@ -12,7 +12,7 @@ export class SearchComponent implements OnInit {
 
   public placeholderText = 'Search for any IP address';
   public searchValue = "";
-  public isValid: boolean = false; //todo: should be false
+  public isValid: boolean = false;
 
   constructor(private ipGeoloaction: IpGeolocationService) {
   }
@@ -23,7 +23,6 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  //TODO: repair validation
   public inputChange(value: string) {
     this.searchValue = value;
     this.isValid = ValidateIPaddress(this.searchValue);

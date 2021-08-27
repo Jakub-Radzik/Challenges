@@ -21,7 +21,6 @@ export class MapComponent implements OnInit, AfterViewInit {
       center: position,
       zoom: 3
     });
-    console.log("init map")
 
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
@@ -47,7 +46,17 @@ export class MapComponent implements OnInit, AfterViewInit {
             this.map.flyTo([50, 0], 3);
           }else{
             this.map.flyTo(center, 13);
-            L.marker(center, {title:name}).addTo(this.map);
+
+            let width = 30;
+            let height = 50;
+
+            let icon = L.icon({
+              iconUrl: 'assets/icon-location.svg',
+              iconSize:     [width, height],
+              iconAnchor:   [width/2, height],
+              popupAnchor:  [-3, -76]
+            });
+            L.marker(center, {icon: icon, title:name}).addTo(this.map);
           }
         }
       }
