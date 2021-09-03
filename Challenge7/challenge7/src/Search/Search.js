@@ -5,8 +5,10 @@ const Search = ({
   placeholder,
   searchTerm,
   searchTermHandler,
+  isAutoFocus,
   children,
 }) => {
+  //TODO: submit on enter
   return (
     <>
       <input
@@ -14,6 +16,7 @@ const Search = ({
         placeholder={placeholder}
         value={searchTerm}
         onChange={searchTermHandler}
+        autoFocus={isAutoFocus}
       />
       {children}
     </>
