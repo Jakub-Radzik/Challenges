@@ -5,9 +5,16 @@ const Search = ({
   placeholder,
   searchTerm,
   searchTermHandler,
+  submitHandler,
   isAutoFocus,
   children,
 }) => {
+  const onClickHandler = (event) => {
+    if (event.key === 'Enter' && searchTerm) {
+      submitHandler();
+    }
+  };
+
   //TODO: submit on enter
   return (
     <>
@@ -16,6 +23,7 @@ const Search = ({
         placeholder={placeholder}
         value={searchTerm}
         onChange={searchTermHandler}
+        onKeyDown={onClickHandler}
         autoFocus={isAutoFocus}
       />
       {children}

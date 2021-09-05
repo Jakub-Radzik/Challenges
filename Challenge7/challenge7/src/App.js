@@ -45,6 +45,7 @@ function App() {
         placeholder={'Search GitHub username...'}
         searchTerm={searchTerm}
         searchTermHandler={searchTermChangeHandler}
+        submitHandler={() => handlerClick()}
         isAutoFocus={true}
       >
         <button onClick={() => handlerClick()}>Search</button>
