@@ -15,7 +15,7 @@ const Card = ({ item }) => {
   } = item;
 
   React.useEffect(() => {
-    console.log(item);
+    // console.log(item);
   }, [item]);
 
   return (

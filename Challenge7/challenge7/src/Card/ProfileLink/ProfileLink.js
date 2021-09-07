@@ -8,7 +8,7 @@ import RepoCard from '../../SearchResults/RepoCard/RepoCard';
 import InformationCard from '../../SearchResults/InformationCard/InformationCard';
 
 const generateNodes = (data, text) => {
-  console.log(data);
+  // console.log(data);
   let elemList = [];
   let i = 1;
   switch (text) {
@@ -77,20 +77,18 @@ const ProfileLink = ({ text, url, owner }) => {
 
   const handleClose = () => setShow(false);
   const handleShow = (url) => {
-    console.log(url);
+    // console.log(url);
     axios
       .get(url)
       .then((result) =>
         generateNodes(result, text)
       )
       .then((nodes) => {
-        console.log(nodes);
+        // console.log(nodes);
         setElems(nodes);
       })
       .then(() => setShow(true));
   };
-
-  const [data, setData] = useState([]);
 
   return (
     <>
@@ -116,4 +114,3 @@ const ProfileLink = ({ text, url, owner }) => {
   );
 };
 export default ProfileLink;
-// data-toggle="modal" data-target="#exampleModal"
