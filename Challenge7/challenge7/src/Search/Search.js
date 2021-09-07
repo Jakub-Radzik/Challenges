@@ -14,8 +14,6 @@ const Search = ({
       submitHandler();
     }
   };
-
-  //TODO: submit on enter
   return (
     <>
       <input

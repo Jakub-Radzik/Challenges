@@ -57,7 +57,7 @@ function App() {
           !loadingResult &&
           !errorResult &&
           searchResult.map((item, index) => {
-            return <Card item={item}></Card>;
+            return <Card item={item} key={index}></Card>;
           })}
       </div>
     </div>

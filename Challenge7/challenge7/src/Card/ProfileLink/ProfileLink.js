@@ -1,48 +1,71 @@
 import React, { useState } from 'react';
 import '../../Styles/Card/ProfileLink.sass';
-import ReactDOM from 'react-dom';
-import { Modal, Button } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import ModalView from '../../Modal/ModalView';
 import axios from 'axios';
+import { Names } from '../../Utils/Names';
+import FollowerCard from '../../SearchResults/FollowerCard/FollowerCard';
 
-const ModalView = ({ handleClose, show, url }) => {
-  const close = () => {
-    handleClose();
-  };
+const generateNodes = (data, text) => {
+  console.log(data);
+  let elemList = [];
+  switch (text) {
+    case Names.FOLLOWERS:
+      for (let elem of data.data) {
+        elemList.push(
+          <FollowerCard
+            login={elem.login}
+            avatar_url={elem.avatar_url}
+            html_url={elem.html_url}
+          />
+        );
+      }
+      break;
+    case Names.FOLLOWING:
+      for (let elem of data.data) {
+        elemList.push(
+          <FollowerCard
+            login={elem.login}
+            avatar_url={elem.avatar_url}
+            html_url={elem.html_url}
+          />
+        );
+      }
+      break;
+  }
 
-  return (
-    <Modal show={show} onHide={close} backdrop="static" keyboard={false}>
-      <Modal.Header closeButton>
-        <Modal.Title>Modal heading</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>{}</Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={close}>
-          Close
-        </Button>
-        {/*<Button variant="primary" onClick={close}>*/}
-        {/*  Save Changes*/}
-        {/*</Button>*/}
-      </Modal.Footer>
-    </Modal>
-  );
+  return elemList;
 };
 
-const ProfileLink = ({ text, url }) => {
+const ProfileLink = ({ text, url, owner }) => {
   const [show, setShow] = useState(false);
+  const [elems, setElems] = useState([]);
 
   const handleClose = () => setShow(false);
   const handleShow = (url) => {
-    //download data from url
-    //TODO: make it bitch
-    setShow(true);
+    console.log(url);
+    axios
+      .get(url)
+      .then((result) => generateNodes(result, text))
+      .then((nodes) => {
+        console.log(nodes);
+        setElems(nodes);
+      })
+      .then(() => setShow(true));
   };
 
   const [data, setData] = useState([]);
 
   return (
     <>
-      <ModalView handleClose={handleClose} show={show} />
+      <ModalView
+        handleClose={handleClose}
+        show={show}
+        title={text}
+        owner={owner}
+      >
+        {elems.length > 0 && elems.map((elem) => elem)}
+        {elems.length === 0 && <h1>There is no results</h1>}
+      </ModalView>
       <div className="ProfileLink" onClick={() => handleShow(url)}>
         {text}
       </div>

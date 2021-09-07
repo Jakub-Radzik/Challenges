@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Styles/Card/Card.sass';
 import ProfileLink from './ProfileLink/ProfileLink';
+import { Names } from '../Utils/Names';
 
 const Card = ({ item }) => {
   const {
@@ -13,9 +14,9 @@ const Card = ({ item }) => {
     url,
   } = item;
 
-  // React.useEffect(() => {
-  //   console.log(item);
-  // }, [item]);
+  React.useEffect(() => {
+    console.log(item);
+  }, [item]);
 
   return (
     <div className="Card">
@@ -29,10 +30,22 @@ const Card = ({ item }) => {
           </a>
         </div>
         <div className="bottom">
-          <ProfileLink text={'Followers'} url={followers_url} />
-          <ProfileLink text={'Following'} url={following_url} />
-          <ProfileLink text={'Repositories'} url={repos_url} />
-          <ProfileLink text={'More Information'} url={url} />
+          <ProfileLink
+            text={Names.FOLLOWERS}
+            url={followers_url}
+            owner={login}
+          />
+          <ProfileLink
+            text={Names.FOLLOWING}
+            url={following_url.slice(0, following_url.indexOf('{'))}
+            owner={login}
+          />
+          <ProfileLink
+            text={Names.REPOSITORIES}
+            url={repos_url}
+            owner={login}
+          />
+          <ProfileLink text={Names.INFORMATION} url={url} owner={login} />
         </div>
       </div>
     </div>
