@@ -15,7 +15,6 @@ code {
 }
 
 .temp-header{
-  border: 1px solid black;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -38,4 +37,10 @@ a:visited{
   -moz-user-select:none;
   -ms-user-select:none;
   user-select:none;
+}
+
+ul{
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
 }

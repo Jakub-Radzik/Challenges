@@ -64,7 +64,7 @@ function App() {
         >
           <button onClick={() => handlerClick()}>Search</button>
         </Search>
-        {sites > 0 && (
+        {sites > 1 && (
           <ReactPaginate
             pageCount={sites}
             pageRangeDisplayed={3}
