@@ -3,6 +3,9 @@ import Search from './Search/Search';
 import React from 'react';
 import axios from 'axios';
 import Card from './Card/Card';
+import Loader from './Utils/Loader/Loader';
+import Error from './Utils/Error/Error';
+import Header from './Components/Header/Header';
 
 function App() {
   const [searchTerm, setSearchTerm] = React.useState('');
@@ -37,10 +40,11 @@ function App() {
 
   return (
     <div className="App">
-      <div className={'temp-header'}>
+      <Header>
         <h1>devfinder</h1>
         <div>switch</div>
-      </div>
+      </Header>
+
       <Search
         placeholder={'Search GitHub username...'}
         searchTerm={searchTerm}
@@ -51,8 +55,8 @@ function App() {
         <button onClick={() => handlerClick()}>Search</button>
       </Search>
       <div>
-        {loadingResult && <h1>LOADING</h1>}
-        {errorResult && <h1>Error after fetch data</h1>}
+        {loadingResult && <Loader />}
+        {errorResult && <Error />}
         {searchResult &&
           !loadingResult &&
           !errorResult &&

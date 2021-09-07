@@ -1,4 +1,5 @@
 import React from 'react';
+import '../Styles/Search/Search.sass';
 
 const Search = ({
   type = 'text',
@@ -15,7 +16,7 @@ const Search = ({
     }
   };
   return (
-    <>
+    <div className={'search'}>
       <input
         type={type}
         placeholder={placeholder}
@@ -25,7 +26,7 @@ const Search = ({
         autoFocus={isAutoFocus}
       />
       {children}
-    </>
+    </div>
   );
 };
 

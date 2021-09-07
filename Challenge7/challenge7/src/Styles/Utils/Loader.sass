@@ -1,0 +1,37 @@
+.Loader
+  margin: auto
+  position: fixed
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  width: 200px
+  height: 200px
+  border: 10px solid transparent
+  border-left-color: #074897
+  border-right-color: #074897
+  border-radius: 100%
+  animation: rotation
+  animation-duration: 1s
+  animation-fill-mode: forwards
+  animation-iteration-count: infinite
+
+  > div
+    border: 10px solid transparent
+    border-top-color: #0073ff
+    border-bottom-color: #0073ff
+    width: 180px
+    height: 180px
+    border-radius: 100%
+    animation: rotation
+    animation-duration: 2s
+    animation-direction: reverse
+    animation-fill-mode: forwards
+    animation-iteration-count: infinite
+
+@keyframes rotation
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
