@@ -3,3 +3,26 @@
   max-width: 600px;
   margin: auto;
 }
+
+.tools{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.tools ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+.tools ul li {
+  width: 100%;
+  border: 1px solid black;
+}
+
+.tools ul li:not(li:first-child):not(li:last-child) {
+  width: 100%;
+  border: 1px solid black;
+  padding: 0 10px;
+}
