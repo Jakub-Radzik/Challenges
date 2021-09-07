@@ -2,6 +2,10 @@ import React from 'react';
 import '../Styles/Card/Card.sass';
 import ProfileLink from './ProfileLink/ProfileLink';
 import { Names } from '../Utils/Names';
+import followers from '../img/followers.svg';
+import following from '../img/observation.svg';
+import overview from '../img/file.svg';
+import repo from '../img/folders.svg';
 
 const Card = ({ item }) => {
   const {
@@ -15,7 +19,7 @@ const Card = ({ item }) => {
   } = item;
 
   React.useEffect(() => {
-    // console.log(item);
+    console.log(item);
   }, [item]);
 
   return (
@@ -31,24 +35,25 @@ const Card = ({ item }) => {
         </div>
         <div className="bottom">
           <ProfileLink
+            icon={followers}
             text={Names.FOLLOWERS}
             url={followers_url}
             owner={login}
           />
           <ProfileLink
+            icon={following}
             text={Names.FOLLOWING}
-            url={following_url.slice(
-              0,
-              following_url.indexOf('{')
-            )}
+            url={following_url.slice(0, following_url.indexOf('{'))}
             owner={login}
           />
           <ProfileLink
+            icon={repo}
             text={Names.REPOSITORIES}
             url={repos_url}
             owner={login}
           />
           <ProfileLink
+            icon={overview}
             text={Names.INFORMATION}
             url={url}
             owner={login}

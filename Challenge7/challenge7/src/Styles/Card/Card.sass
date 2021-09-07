@@ -1,5 +1,6 @@
 $desktop-height: 150px
 $mobile-height: 120px
+$tiny-mobile-height: 70px
 
 .Card
   background: #0466C8
@@ -18,7 +19,7 @@ $mobile-height: 120px
     width: 100%
     display: flex
     flex-direction: column
-    justify-content: space-evenly
+    justify-content: space-between
     padding: 20px
 .top
   letter-spacing: 2px
@@ -30,8 +31,7 @@ $mobile-height: 120px
 .bottom
   display: flex
   flex-direction: row
-  justify-content: space-between
-  align-items: center
+  justify-content: flex-start
 
 @media(max-width: 600px)
   .Card
@@ -43,13 +43,21 @@ $mobile-height: 120px
         width: $mobile-height
         height: $mobile-height
     .right
-      flex-direction: row
-      align-items: center
-      justify-content: space-between
-      padding: 0 0 0 5px
-    .bottom
-      flex-direction: column
-    .top
-      justify-content: center
+      align-items: flex-start
+      justify-content: space-evenly
+      padding: 0 0 0 20px
       h1
         font-size: 1.5em
+
+@media(max-width: 400px)
+  .Card
+    height: auto
+    margin-top: 0
+    border-bottom: 1px solid black
+    .left
+      img
+        width: $tiny-mobile-height
+        height: $tiny-mobile-height
+    .bottom
+      width: 100%
+      justify-content: space-between

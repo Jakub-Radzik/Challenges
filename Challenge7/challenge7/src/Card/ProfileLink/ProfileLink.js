@@ -71,7 +71,7 @@ const generateNodes = (data, text) => {
   return elemList;
 };
 
-const ProfileLink = ({ text, url, owner }) => {
+const ProfileLink = ({ text, url, owner, icon }) => {
   const [show, setShow] = useState(false);
   const [elems, setElems] = useState([]);
 
@@ -80,9 +80,7 @@ const ProfileLink = ({ text, url, owner }) => {
     // console.log(url);
     axios
       .get(url)
-      .then((result) =>
-        generateNodes(result, text)
-      )
+      .then((result) => generateNodes(result, text))
       .then((nodes) => {
         // console.log(nodes);
         setElems(nodes);
@@ -98,17 +96,11 @@ const ProfileLink = ({ text, url, owner }) => {
         title={text}
         owner={owner}
       >
-        {elems.length > 0 &&
-          elems.map((elem) => elem)}
-        {elems.length === 0 && (
-          <h1>There is no results</h1>
-        )}
+        {elems.length > 0 && elems.map((elem) => elem)}
+        {elems.length === 0 && <h1>There is no results</h1>}
       </ModalView>
-      <div
-        className="ProfileLink"
-        onClick={() => handleShow(url)}
-      >
-        {text}
+      <div className="ProfileLink" onClick={() => handleShow(url)}>
+        <img src={icon} alt="icon" />
       </div>
     </>
   );
