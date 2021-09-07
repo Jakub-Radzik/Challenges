@@ -1,13 +1,27 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import '../../Styles/SearchResult/RepoCard.sass';
 
-const RepoCard = () => {
+const RepoCard = ({
+  name,
+  html_url,
+  description,
+  language,
+  license,
+}) => {
   return (
-    <div className="RepoCard">
-    </div>
-  )
-}
-RepoCard.propTypes = {
-}
+    <a href={html_url}>
+      <div className="RepoCard">
+        <h2>{name}</h2>
+        <div className="top">
+          <div>{language}</div>
+          <div>{license && license.name}</div>
+        </div>
+        <div className="bottom">
+          <p>{description}</p>
+        </div>
+      </div>
+    </a>
+  );
+};
 
 export default RepoCard;

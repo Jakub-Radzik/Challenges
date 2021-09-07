@@ -37,7 +37,10 @@ const Card = ({ item }) => {
           />
           <ProfileLink
             text={Names.FOLLOWING}
-            url={following_url.slice(0, following_url.indexOf('{'))}
+            url={following_url.slice(
+              0,
+              following_url.indexOf('{')
+            )}
             owner={login}
           />
           <ProfileLink
@@ -45,7 +48,11 @@ const Card = ({ item }) => {
             url={repos_url}
             owner={login}
           />
-          <ProfileLink text={Names.INFORMATION} url={url} owner={login} />
+          <ProfileLink
+            text={Names.INFORMATION}
+            url={url}
+            owner={login}
+          />
         </div>
       </div>
     </div>
