@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../Styles/Card/ProfileLink.sass';
+import './ProfileLink.sass';
 import ModalView from '../../Modal/ModalView';
 import axios from 'axios';
 import { Names } from '../../Utils/Names';

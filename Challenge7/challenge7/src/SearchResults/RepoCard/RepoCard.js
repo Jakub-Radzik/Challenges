@@ -1,13 +1,7 @@
 import React from 'react';
-import '../../Styles/SearchResult/RepoCard.sass';
+import './RepoCard.sass';
 
-const RepoCard = ({
-  name,
-  html_url,
-  description,
-  language,
-  license,
-}) => {
+const RepoCard = ({ name, html_url, description, language, license }) => {
   return (
     <a href={html_url}>
       <div className="RepoCard">

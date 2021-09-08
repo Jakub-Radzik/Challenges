@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../Styles/Utils/Error.sass';
+import './Error.sass';
 
 const Error = () => {
   return (

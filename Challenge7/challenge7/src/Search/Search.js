@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Styles/Search/Search.sass';
+import './Search.sass';
 
 const Search = ({
   type = 'text',

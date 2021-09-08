@@ -1,24 +1,43 @@
+.appWrapper {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--app-bg);
+}
+
 .App {
   width: 100%;
   max-width: 600px;
+  min-height: 100vh;
   margin: auto;
 }
 
 .tools{
+  padding: 15px 20px;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 20px 20px;
+  background: var(--header-bg);
 }
 
 .tools ul {
   display: flex;
   flex-direction: row;
   list-style-type: none;
+  background: var(--header-accent);
+  color: var(--font);
+  height: 40px;
 }
 
 .tools ul li {
   width: 100%;
   border: 1px solid black;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5px;
 }
 
 .tools ul li:not(li:first-child):not(li:last-child) {
@@ -30,6 +49,7 @@
 @media(max-width: 600px){
   .tools{
     flex-direction: column;
+    border-radius: 0;
   }
 
   .tools ul {

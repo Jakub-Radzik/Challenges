@@ -1,6 +1,6 @@
 import { Button, Modal } from 'react-bootstrap';
 import React from 'react';
-import '../Styles/Modals/Modal.sass';
+import './Modal.sass';
 
 const ModalView = ({ handleClose, show, children, title, owner }) => {
   const close = () => {

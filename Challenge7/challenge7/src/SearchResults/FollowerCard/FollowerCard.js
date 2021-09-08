@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Styles/SearchResult/FollowerCard.sass';
+import './FollowerCard.sass';
 
 const FollowerCard = ({ login, avatar_url, html_url }) => {
   return (

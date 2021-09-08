@@ -7,6 +7,15 @@ import Loader from './Utils/Loader/Loader';
 import Error from './Utils/Error/Error';
 import Header from './Components/Header/Header';
 import ReactPaginate from 'react-paginate';
+import Switch from './Components/Switch/Switch';
+import followersLight from './img/followers-white.svg';
+import followingLight from './img/observation-white.svg';
+import overviewLight from './img/file-white.svg';
+import repoLight from './img/folders-white.svg';
+import followersDark from './img/followers.svg';
+import followingDark from './img/observation.svg';
+import overviewDark from './img/file.svg';
+import repoDark from './img/folders.svg';
 
 function App() {
   const [searchTerm, setSearchTerm] = React.useState('');
@@ -48,40 +57,84 @@ function App() {
 
   const [sites, setSites] = React.useState(0);
 
+  //THEME ENGINE ===========================================================
+
+  const [theme, setTheme] = React.useState('light');
+
+  const [iconSet, setIconSet] = React.useState({
+    followers: followersDark,
+    following: followingDark,
+    repo: repoDark,
+    overview: overviewDark,
+  });
+
+  const themeSetter = () => {
+    document.documentElement.setAttribute(
+      'data-theme',
+      theme === 'light' ? 'dark' : 'light'
+    );
+    setTheme(theme === 'light' ? 'dark' : 'light');
+    setIconSet(
+      theme === 'light'
+        ? {
+            followers: followersLight,
+            following: followingLight,
+            repo: repoLight,
+            overview: overviewLight,
+          }
+        : {
+            followers: followersDark,
+            following: followingDark,
+            repo: repoDark,
+            overview: overviewDark,
+          }
+    );
+  };
+  //
+  // React.useEffect(() => {
+  //   console.log(theme, theme === 'light');
+  // }, [theme]);
+
+  //THEME ENGINE ===========================================================
+
   return (
-    <div className="App">
-      <Header>
-        <h1>devfinder</h1>
-        <div>switch</div>
-      </Header>
-      <div className="tools">
-        <Search
-          placeholder={'Search GitHub username...'}
-          searchTerm={searchTerm}
-          searchTermHandler={searchTermChangeHandler}
-          submitHandler={() => handlerClick()}
-          isAutoFocus={true}
-        >
-          <button onClick={() => handlerClick()}>Search</button>
-        </Search>
-        {sites > 1 && (
-          <ReactPaginate
-            pageCount={sites}
-            pageRangeDisplayed={3}
-            marginPagesDisplayed={1}
-            onPageChange={(page) => pageControl(page.selected + 1)}
-          />
-        )}
-      </div>
-      <div>
-        {loadingResult && <Loader />}
-        {errorResult && <Error />}
-        {searchResult &&
-          !loadingResult &&
-          !errorResult &&
-          searchResult.map((item, index) => {
-            return <Card item={item} key={index}></Card>;
-          })}
+    <div className="appWrapper">
+      <div className="App">
+        <Header>
+          <h1>devfinder</h1>
+          <Switch clickHandler={() => themeSetter()}>
+            <p>{theme}</p>
+          </Switch>
+        </Header>
+        <div className="tools">
+          <Search
+            placeholder={'Search GitHub username...'}
+            searchTerm={searchTerm}
+            searchTermHandler={searchTermChangeHandler}
+            submitHandler={() => handlerClick()}
+            isAutoFocus={true}
+          >
+            <button onClick={() => handlerClick()}>Search</button>
+          </Search>
+          {sites > 1 && (
+            <ReactPaginate
+              pageCount={sites}
+              pageRangeDisplayed={3}
+              marginPagesDisplayed={1}
+              onPageChange={(page) => pageControl(page.selected + 1)}
+            />
+          )}
+        </div>
+        <div>
+          {loadingResult && <Loader />}
+          {errorResult && <Error />}
+          {searchResult &&
+            !loadingResult &&
+            !errorResult &&
+            searchResult.map((item, index) => {
+              return <Card item={item} key={index} iconSet={iconSet}></Card>;
+            })}
+        </div>
       </div>
     </div>
   );

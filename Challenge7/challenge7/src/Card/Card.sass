@@ -3,9 +3,9 @@ $mobile-height: 120px
 $tiny-mobile-height: 70px
 
 .Card
-  background: #0466C8
-  color: white
+  background: var(--card-bg)
   margin-top: 10px
+  border-radius: 20px
   height: $desktop-height
   display: flex
   flex-direction: row
@@ -15,6 +15,7 @@ $tiny-mobile-height: 70px
     img
       width: $desktop-height
       height: $desktop-height
+      border-radius: 20px 0 0 20px
   .right
     width: 100%
     display: flex
@@ -24,7 +25,7 @@ $tiny-mobile-height: 70px
 .top
   letter-spacing: 2px
   h1
-    color: white !important
+    color: var(--font)
     overflow: hidden
     word-break: break-word
 
@@ -37,11 +38,13 @@ $tiny-mobile-height: 70px
   .Card
     height: auto
     margin-top: 0
+    border-radius: 0
     border-bottom: 1px solid black
     .left
       img
         width: $mobile-height
         height: $mobile-height
+        border-radius: 0
     .right
       align-items: flex-start
       justify-content: space-evenly

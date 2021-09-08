@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Styles/Components/Header.sass';
+import './Header.sass';
 
 const Header = ({ children }) => {
   return <div className="Header">{children}</div>;
