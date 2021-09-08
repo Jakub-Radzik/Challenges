@@ -59,7 +59,7 @@ function App() {
 
   //THEME ENGINE ===========================================================
 
-  const [theme, setTheme] = React.useState('light');
+  const [theme, setTheme] = React.useState(true);
 
   const [iconSet, setIconSet] = React.useState({
     followers: followersDark,
@@ -71,11 +71,11 @@ function App() {
   const themeSetter = () => {
     document.documentElement.setAttribute(
       'data-theme',
-      theme === 'light' ? 'dark' : 'light'
+      theme ? 'dark' : 'light'
     );
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    setTheme(!theme);
     setIconSet(
-      theme === 'light'
+      theme
         ? {
             followers: followersLight,
             following: followingLight,
@@ -90,10 +90,6 @@ function App() {
           }
     );
   };
-  //
-  // React.useEffect(() => {
-  //   console.log(theme, theme === 'light');
-  // }, [theme]);
 
   //THEME ENGINE ===========================================================
 
@@ -103,7 +99,7 @@ function App() {
         <Header>
           <h1>devfinder</h1>
           <Switch clickHandler={() => themeSetter()}>
-            <p>{theme}</p>
+            <p>{theme ? 'Dark Theme' : 'Light Theme'}</p>
           </Switch>
         </Header>
         <div className="tools">

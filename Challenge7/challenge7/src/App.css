@@ -28,11 +28,11 @@
   background: var(--header-accent);
   color: var(--font);
   height: 40px;
+  border-radius: 20px;
 }
 
 .tools ul li {
   width: 100%;
-  border: 1px solid black;
   height: 40px;
   display: flex;
   justify-content: center;
@@ -40,9 +40,9 @@
   padding: 0 5px;
 }
 
-.tools ul li:not(li:first-child):not(li:last-child) {
+.tools ul li:not(li:first-child) {
   width: 100%;
-  border: 1px solid black;
+  border-left: 2px solid var(--header-bg);
   padding: 0 10px;
 }
 
@@ -53,8 +53,8 @@
   }
 
   .tools ul {
-    margin: auto;
     width: 100%;
+    margin: 10px auto 0 auto;
   }
 }
 
