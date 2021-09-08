@@ -2,11 +2,11 @@
 @import url('bootstrap/dist/css/bootstrap.min.css');
 
 html[data-theme='light'] {
-    --app-bg: #fed9b7;
-    --header-bg: #b62828;
-    --header-accent: #531010;
-    --card-bg: #fff;
-    --font: #1d2e3b
+    --app-bg: #4cc9f0;
+    --header-bg: #faedcd;
+    --header-accent: #4cc9f0;
+    --card-bg: #faedcd;
+    --font: #023047
 }
 
 html[data-theme='dark'] {
