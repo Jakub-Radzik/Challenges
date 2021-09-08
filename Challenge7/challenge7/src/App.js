@@ -41,6 +41,25 @@ function App() {
         } else {
           setSites(Math.ceil(r.data.total_count / per_page));
         }
+        for (let item of r.data.items) {
+          item.following_url = item.following_url.slice(
+            0,
+            item.following_url.indexOf('{')
+          );
+          item.more = {};
+
+          axios
+            .get(item.followers_url)
+            .then((r) => (item.more.followers = r.data));
+
+          axios
+            .get(item.following_url)
+            .then((r) => (item.more.following = r.data));
+
+          axios.get(item.repos_url).then((r) => (item.more.repos = r.data));
+
+          axios.get(item.url).then((r) => (item.more.overview = r.data));
+        }
         setSearchResult(r.data.items);
         setLoadingResult(false);
       })

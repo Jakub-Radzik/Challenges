@@ -4,7 +4,8 @@
 html[data-theme='light'] {
     --app-bg: #4cc9f0;
     --header-bg: #faedcd;
-    --header-accent: #4cc9f0;
+    --header-accent: #abced9;
+    --header-accent2: #c6c9ce;
     --card-bg: #faedcd;
     --font: #023047
 }
@@ -13,6 +14,7 @@ html[data-theme='dark'] {
     --app-bg: #001d3d;
     --header-bg: #003566;
     --header-accent: #184eba;
+    --header-accent2: #5273b4;
     --card-bg: #003566;
     --font: #becfd9
 }
