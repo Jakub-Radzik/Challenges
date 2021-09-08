@@ -1,4 +1,4 @@
-import './App.css';
+import './App.sass';
 import Search from './Search/Search';
 import React from 'react';
 import axios from 'axios';
@@ -16,9 +16,14 @@ import followersDark from './img/followers.svg';
 import followingDark from './img/observation.svg';
 import overviewDark from './img/file.svg';
 import repoDark from './img/folders.svg';
+import {
+  useSemiPersistentState,
+  useSemiPersistentStateTheme,
+} from './Hooks/useSemiPersistentState';
 
 function App() {
-  const [searchTerm, setSearchTerm] = React.useState('');
+  //SEARCH ===========================================================
+  const [searchTerm, setSearchTerm] = useSemiPersistentState('searchTerm', '');
 
   const [searchResult, setSearchResult] = React.useState([]);
   const [loadingResult, setLoadingResult] = React.useState(false);
@@ -76,38 +81,30 @@ function App() {
 
   const [sites, setSites] = React.useState(0);
 
+  //SEARCH ===========================================================
   //THEME ENGINE ===========================================================
 
-  const [theme, setTheme] = React.useState(true);
-
-  const [iconSet, setIconSet] = React.useState({
-    followers: followersDark,
-    following: followingDark,
-    repo: repoDark,
-    overview: overviewDark,
-  });
-
+  const [theme, setTheme] = useSemiPersistentStateTheme('theme', 'light');
+  const icons = {
+    dark: {
+      followers: followersDark,
+      following: followingDark,
+      repo: repoDark,
+      overview: overviewDark,
+    },
+    light: {
+      followers: followersLight,
+      following: followingLight,
+      repo: repoLight,
+      overview: overviewLight,
+    },
+  };
   const themeSetter = () => {
     document.documentElement.setAttribute(
       'data-theme',
-      theme ? 'dark' : 'light'
+      theme === 'light' ? 'dark' : 'light'
     );
-    setTheme(!theme);
-    setIconSet(
-      theme
-        ? {
-            followers: followersLight,
-            following: followingLight,
-            repo: repoLight,
-            overview: overviewLight,
-          }
-        : {
-            followers: followersDark,
-            following: followingDark,
-            repo: repoDark,
-            overview: overviewDark,
-          }
-    );
+    setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
   //THEME ENGINE ===========================================================
@@ -118,7 +115,7 @@ function App() {
         <Header>
           <h1>devfinder</h1>
           <Switch clickHandler={() => themeSetter()}>
-            <p>{theme ? 'Dark Theme' : 'Light Theme'}</p>
+            <p>{theme === 'light' ? 'Dark Theme' : 'Light Theme'}</p>
           </Switch>
         </Header>
         <div className="tools">
@@ -147,7 +144,7 @@ function App() {
             !loadingResult &&
             !errorResult &&
             searchResult.map((item, index) => {
-              return <Card item={item} key={index} iconSet={iconSet}></Card>;
+              return <Card item={item} key={index} iconSet={icons[theme]} />;
             })}
         </div>
       </div>

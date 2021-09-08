@@ -19,9 +19,6 @@ const ModalView = ({ handleClose, show, children, title, owner }) => {
         <Button variant="secondary" onClick={close}>
           Close
         </Button>
-        {/*<Button variant="primary" onClick={close}>*/}
-        {/*  Save Changes*/}
-        {/*</Button>*/}
       </Modal.Footer>
     </Modal>
   );

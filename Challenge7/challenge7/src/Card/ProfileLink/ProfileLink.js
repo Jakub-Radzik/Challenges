@@ -71,7 +71,7 @@ const generateNodes = (data, text) => {
   return elemList;
 };
 
-const ProfileLink = ({ text, url, owner, icon }) => {
+const ProfileLink = ({ text, url, owner, icon, content }) => {
   const [show, setShow] = useState(false);
   const [elems, setElems] = useState([]);
 

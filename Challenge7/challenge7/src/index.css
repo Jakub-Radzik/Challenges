@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 @import url('bootstrap/dist/css/bootstrap.min.css');
 
+/*THEME*/
 html[data-theme='light'] {
     --app-bg: #4cc9f0;
     --header-bg: #faedcd;
@@ -18,8 +19,9 @@ html[data-theme='dark'] {
     --card-bg: #003566;
     --font: #becfd9
 }
+/*THEME*/
 
-
+/*CLEAR STYLES*/
 body, h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-family: 'Roboto Condensed', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

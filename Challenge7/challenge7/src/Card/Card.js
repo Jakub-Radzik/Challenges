@@ -13,11 +13,6 @@ const Card = ({ item, iconSet }) => {
     repos_url,
     url,
   } = item;
-
-  React.useEffect(() => {
-    console.log(item);
-  }, [item]);
-
   return (
     <div className="Card">
       <div className="left">
@@ -35,24 +30,28 @@ const Card = ({ item, iconSet }) => {
             text={Names.FOLLOWERS}
             url={followers_url}
             owner={login}
+            content={item.more.followers}
           />
           <ProfileLink
             icon={iconSet && iconSet.following}
             text={Names.FOLLOWING}
             url={following_url.slice(0, following_url.indexOf('{'))}
             owner={login}
+            content={item.more.following}
           />
           <ProfileLink
             icon={iconSet && iconSet.repo}
             text={Names.REPOSITORIES}
             url={repos_url}
             owner={login}
+            content={item.more.repos}
           />
           <ProfileLink
             icon={iconSet && iconSet.overview}
             text={Names.INFORMATION}
             url={url}
             owner={login}
+            content={item.more.overview}
           />
         </div>
       </div>
