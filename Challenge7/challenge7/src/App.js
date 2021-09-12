@@ -20,6 +20,8 @@ import {
   useSemiPersistentState,
   useSemiPersistentStateTheme,
 } from './Hooks/useSemiPersistentState';
+import { GitHubOAuth } from 'reactjs-oauth';
+import OAuth2Login from 'react-simple-oauth2-login';
 
 function App() {
   //SEARCH ===========================================================
@@ -109,11 +111,35 @@ function App() {
 
   //THEME ENGINE ===========================================================
 
+  //AUTH
+
+  const onSuccess = (response) => console.log(response);
+  const onFailure = (response) => console.error(response);
+  // Handle a successful oauth request
+  const oauthGitHubSuccess = (response) => {
+    console.log(response);
+  };
+
+  // Handle a failed oauth request
+  const oauthGitHubFailure = (response) => {
+    console.log(response);
+  };
   return (
     <div className="appWrapper">
       <div className="App">
         <Header>
-          <h1>devfinder</h1>
+          <h1>
+            devfinder
+            <OAuth2Login
+              authorizationUrl="https://github.com/login/oauth/authorize"
+              responseType="token"
+              clientId="14a7970ad8d07c5c4f67"
+              redirectUri="http://localhost:3000/devfinder/auth"
+              onSuccess={onSuccess}
+              onFailure={onFailure}
+            />
+          </h1>
+          <div id="auth">asd</div>
           <Switch clickHandler={() => themeSetter()}>
             <p>{theme === 'light' ? 'Dark Theme' : 'Light Theme'}</p>
           </Switch>

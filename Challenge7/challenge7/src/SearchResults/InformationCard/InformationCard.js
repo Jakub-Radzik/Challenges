@@ -13,7 +13,7 @@ const InformationCard = ({
 }) => {
   return (
     <div className="InformationCard">
-      <div>{avatar_url}</div>
+      <img src={avatar_url} alt="avatar url" />
       <div>{bio}</div>
       <div>{company}</div>
       <div>{created_at}</div>
