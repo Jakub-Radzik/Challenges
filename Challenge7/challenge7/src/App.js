@@ -20,8 +20,7 @@ import {
   useSemiPersistentState,
   useSemiPersistentStateTheme,
 } from './Hooks/useSemiPersistentState';
-import { GitHubOAuth } from 'reactjs-oauth';
-import OAuth2Login from 'react-simple-oauth2-login';
+import GitHubLogin from 'react-github-login';
 
 function App() {
   //SEARCH ===========================================================
@@ -111,35 +110,57 @@ function App() {
 
   //THEME ENGINE ===========================================================
 
-  //AUTH
+  const LOGOUT = 'LOGOUT';
+  const CODE = 'CODE TO EXCHANGE';
+  const AUTHORIZED = 'AUTHORIZED';
 
-  const onSuccess = (response) => console.log(response);
+  const authInitial = {
+    state: LOGOUT,
+    code: null,
+    token: null,
+  };
+
+  const [auth, setAuth] = React.useState(authInitial);
+
+  const onSuccess = (response) => {
+    console.log(response);
+    setAuth({ ...auth, state: CODE, code: response.code });
+  };
+
+  const headers = {
+    'Access-Control-Allow-Origin': '*.github.com',
+  };
+
+  React.useEffect(() => {
+    if (auth && auth.code) {
+      axios
+        .post(
+          `https://github.com/login/oauth/access_token?client_id=${process.env.REACT_APP_CLIENT_ID}&client_secret=${process.env.REACT_APP_CLIENT_SECRET}&code=${auth.code}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}`,
+          {},
+          { headers: headers }
+        )
+        .then((res) => {
+          console.log(res);
+        });
+      console.log(auth);
+    }
+  }, [auth]);
+
   const onFailure = (response) => console.error(response);
-  // Handle a successful oauth request
-  const oauthGitHubSuccess = (response) => {
-    console.log(response);
-  };
 
-  // Handle a failed oauth request
-  const oauthGitHubFailure = (response) => {
-    console.log(response);
-  };
   return (
     <div className="appWrapper">
       <div className="App">
         <Header>
           <h1>
             devfinder
-            <OAuth2Login
-              authorizationUrl="https://github.com/login/oauth/authorize"
-              responseType="token"
-              clientId="14a7970ad8d07c5c4f67"
-              redirectUri="http://localhost:3000/devfinder/auth"
+            <GitHubLogin
+              clientId={process.env.REACT_APP_CLIENT_ID}
+              redirectUri={process.env.REACT_APP_REDIRECT_URI}
               onSuccess={onSuccess}
               onFailure={onFailure}
             />
           </h1>
-          <div id="auth">asd</div>
           <Switch clickHandler={() => themeSetter()}>
             <p>{theme === 'light' ? 'Dark Theme' : 'Light Theme'}</p>
           </Switch>
