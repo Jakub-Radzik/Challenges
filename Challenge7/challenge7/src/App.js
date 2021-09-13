@@ -83,7 +83,6 @@ function App() {
             .then((r) => (item.more.overview = r.data));
         }
         setSearchResult(r.data.items);
-        setLoadingResult(false);
       })
       .catch((err) => {
         console.log(err);
