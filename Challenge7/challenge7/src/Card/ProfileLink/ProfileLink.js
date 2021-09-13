@@ -73,19 +73,11 @@ const generateNodes = (data, text) => {
 
 const ProfileLink = ({ text, url, owner, icon, content }) => {
   const [show, setShow] = useState(false);
-  const [elems, setElems] = useState([]);
+  const [elems, setElems] = useState(content);
 
   const handleClose = () => setShow(false);
-  const handleShow = (url) => {
-    // console.log(url);
-    axios
-      .get(url)
-      .then((result) => generateNodes(result, text))
-      .then((nodes) => {
-        // console.log(nodes);
-        setElems(nodes);
-      })
-      .then(() => setShow(true));
+  const handleShow = () => {
+    setShow(true);
   };
 
   return (

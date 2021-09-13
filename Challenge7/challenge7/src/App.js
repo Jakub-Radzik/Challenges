@@ -21,6 +21,7 @@ import {
   useSemiPersistentStateTheme,
 } from './Hooks/useSemiPersistentState';
 import GitHubLogin from 'react-github-login';
+import AuthLoader from './Utils/AuthLoader/AuthLoader';
 
 function App() {
   //SEARCH ===========================================================
@@ -39,7 +40,10 @@ function App() {
     const per_page = 10;
     axios
       .get(
-        `https://api.github.com/search/users?q=${searchTerm}&page=${page}&per_page=${per_page}`
+        `https://api.github.com/search/users?q=${searchTerm}&page=${page}&per_page=${per_page}`,
+        {
+          headers: headersAuth,
+        }
       )
       .then((r) => {
         if (r.data.total_count >= 1000) {
@@ -55,16 +59,28 @@ function App() {
           item.more = {};
 
           axios
-            .get(item.followers_url)
+            .get(item.followers_url, {
+              headers: headersAuth,
+            })
             .then((r) => (item.more.followers = r.data));
 
           axios
-            .get(item.following_url)
+            .get(item.following_url, {
+              headers: headersAuth,
+            })
             .then((r) => (item.more.following = r.data));
 
-          axios.get(item.repos_url).then((r) => (item.more.repos = r.data));
+          axios
+            .get(item.repos_url, {
+              headers: headersAuth,
+            })
+            .then((r) => (item.more.repos = r.data));
 
-          axios.get(item.url).then((r) => (item.more.overview = r.data));
+          axios
+            .get(item.url, {
+              headers: headersAuth,
+            })
+            .then((r) => (item.more.overview = r.data));
         }
         setSearchResult(r.data.items);
         setLoadingResult(false);
@@ -75,6 +91,10 @@ function App() {
         setErrorResult(true);
       });
   };
+
+  React.useEffect(() => {
+    console.dir(searchResult);
+  }, [searchResult]);
 
   const pageControl = (activePage) => {
     handlerClick(activePage);
@@ -110,43 +130,53 @@ function App() {
 
   //THEME ENGINE ===========================================================
 
-  const LOGOUT = 'LOGOUT';
-  const CODE = 'CODE TO EXCHANGE';
-  const AUTHORIZED = 'AUTHORIZED';
-
   const authInitial = {
-    state: LOGOUT,
     code: null,
-    token: null,
+    token: undefined,
   };
 
+  const [authLoading, setAuthLoading] = React.useState(false);
   const [auth, setAuth] = React.useState(authInitial);
+  const [token, setToken] = useSemiPersistentState('token', authInitial.token);
+
+  const headersAuth = {
+    Authorization: `token ${token}`,
+  };
 
   const onSuccess = (response) => {
     console.log(response);
-    setAuth({ ...auth, state: CODE, code: response.code });
-  };
-
-  const headers = {
-    'Access-Control-Allow-Origin': '*.github.com',
+    setAuth({ ...auth, code: response.code });
   };
 
   React.useEffect(() => {
-    if (auth && auth.code) {
+    if (auth && auth.code != null) {
       axios
         .post(
-          `https://github.com/login/oauth/access_token?client_id=${process.env.REACT_APP_CLIENT_ID}&client_secret=${process.env.REACT_APP_CLIENT_SECRET}&code=${auth.code}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}`,
+          `${process.env.REACT_APP_PROXY_URL}https://github.com/login/oauth/access_token?client_id=${process.env.REACT_APP_CLIENT_ID}&client_secret=${process.env.REACT_APP_CLIENT_SECRET}&code=${auth.code}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}`,
           {},
-          { headers: headers }
+          {
+            headers: {
+              'Access-Control-Allow-Origin': '*',
+              Accept: 'application/json',
+            },
+          }
         )
         .then((res) => {
-          console.log(res);
+          setAuth({
+            code: null,
+            token: res.data.access_token,
+          });
+          setToken(res.data.access_token);
+          setAuthLoading(false);
         });
-      console.log(auth);
     }
+    console.log(auth);
   }, [auth]);
 
-  const onFailure = (response) => console.error(response);
+  const onFailure = (response) => {
+    console.error(response);
+    setAuthLoading(false);
+  };
 
   return (
     <div className="appWrapper">
@@ -154,36 +184,49 @@ function App() {
         <Header>
           <h1>
             devfinder
-            <GitHubLogin
-              clientId={process.env.REACT_APP_CLIENT_ID}
-              redirectUri={process.env.REACT_APP_REDIRECT_URI}
-              onSuccess={onSuccess}
-              onFailure={onFailure}
-            />
+            {token ? (
+              <p>You are Authenticated</p>
+            ) : (
+              <GitHubLogin
+                clientId={process.env.REACT_APP_CLIENT_ID}
+                redirectUri={process.env.REACT_APP_REDIRECT_URI}
+                onSuccess={onSuccess}
+                onFailure={onFailure}
+                onRequest={() => setAuthLoading(true)}
+              />
+            )}
           </h1>
           <Switch clickHandler={() => themeSetter()}>
             <p>{theme === 'light' ? 'Dark Theme' : 'Light Theme'}</p>
           </Switch>
         </Header>
-        <div className="tools">
-          <Search
-            placeholder={'Search GitHub username...'}
-            searchTerm={searchTerm}
-            searchTermHandler={searchTermChangeHandler}
-            submitHandler={() => handlerClick()}
-            isAutoFocus={true}
-          >
-            <button onClick={() => handlerClick()}>Search</button>
-          </Search>
-          {sites > 1 && (
-            <ReactPaginate
-              pageCount={sites}
-              pageRangeDisplayed={3}
-              marginPagesDisplayed={1}
-              onPageChange={(page) => pageControl(page.selected + 1)}
-            />
-          )}
-        </div>
+
+        {authLoading && <AuthLoader />}
+
+        {token ? (
+          <div className="tools">
+            <Search
+              placeholder={'Search GitHub username...'}
+              searchTerm={searchTerm}
+              searchTermHandler={searchTermChangeHandler}
+              submitHandler={() => handlerClick()}
+              isAutoFocus={true}
+            >
+              <button onClick={() => handlerClick()}>Search</button>
+            </Search>
+            {sites > 1 && (
+              <ReactPaginate
+                pageCount={sites}
+                pageRangeDisplayed={3}
+                marginPagesDisplayed={1}
+                onPageChange={(page) => pageControl(page.selected + 1)}
+              />
+            )}
+          </div>
+        ) : (
+          <div />
+        )}
+
         <div>
           {loadingResult && <Loader />}
           {errorResult && <Error />}
