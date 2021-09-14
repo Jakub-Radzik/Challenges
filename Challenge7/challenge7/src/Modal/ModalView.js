@@ -9,14 +9,14 @@ const ModalView = ({ handleClose, show, children, title, owner }) => {
 
   return (
     <Modal show={show} onHide={close} backdrop="static" keyboard={false}>
-      <Modal.Header closeButton>
+      <Modal.Header closeButton id={'modal-header'}>
         <Modal.Title>
           {title} of {owner}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body id={'modal-body'}>{children}</Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={close}>
+      <Modal.Footer id={'modal-footer'}>
+        <Button variant="secondary" onClick={close} id={'modal-close-button'}>
           Close
         </Button>
       </Modal.Footer>

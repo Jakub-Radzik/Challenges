@@ -5,10 +5,10 @@ import { Names } from '../../Utils/Names';
 import FollowerCard from '../../SearchResults/FollowerCard/FollowerCard';
 import RepoCard from '../../SearchResults/RepoCard/RepoCard';
 import InformationCard from '../../SearchResults/InformationCard/InformationCard';
-import { UserContext } from '../Card';
+import axios from 'axios';
+import Loader from '../../Utils/Loader/Loader';
 
 const generateNodes = (data, text) => {
-  // console.log(data);
   let elemList = [];
   let i = 1;
   switch (text) {
@@ -51,56 +51,87 @@ const generateNodes = (data, text) => {
       }
       break;
     case Names.INFORMATION:
-      // elemList.push(
-      //   <InformationCard
-      //     key={i++}
-      //     avatar_url={data.avatar_url}
-      //     company={data.company}
-      //     bio={data.bio}
-      //     created_at={data.created_at}
-      //     email={data.email}
-      //     followers={data.followers}
-      //     following={data.following}
-      //     html_url={data.html_url}
-      //     public_repos={data.public_repos}
-      //   />
-      // );
+      elemList.push(
+        <InformationCard
+          key={i++}
+          avatar_url={data.avatar_url}
+          company={data.company}
+          bio={data.bio}
+          created_at={data.created_at}
+          email={data.email}
+          followers={data.followers}
+          following={data.following}
+          html_url={data.html_url}
+          public_repos={data.public_repos}
+        />
+      );
       break;
   }
 
   return elemList;
 };
 
-const ProfileLink = ({ text, owner, icon, e }) => {
+const getUrlFromItem = (item, text) => {
+  switch (text) {
+    case Names.FOLLOWERS:
+      return item.followers_url;
+    case Names.FOLLOWING:
+      return item.following_url.slice(0, item.following_url.indexOf('{'));
+    case Names.REPOSITORIES:
+      return item.repos_url;
+    case Names.INFORMATION:
+      return item.url;
+  }
+};
+
+const ProfileLink = ({ text, icon, item }) => {
   const [show, setShow] = useState(false);
 
+  const [loading, setLoading] = useState(false);
+  const [elems, setElems] = useState({});
+
   const handleClose = () => setShow(false);
-  const handleShow = () => {
+  const handleShow = (item, text) => {
     setShow(true);
+    setLoading(true);
+    axios
+      .get(getUrlFromItem(item, text), {
+        headers: {
+          Authorization: `token ${localStorage.getItem('token')}`,
+        },
+      })
+      .then((r) => {
+        console.dir(r);
+        setLoading(false);
+        setElems(generateNodes(r.data, text));
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
   };
 
-  const user = React.useContext(UserContext);
-
   React.useEffect(() => {
-    console.log(e.followers);
-  }, [e]);
+    console.log(item);
+  }, [item]);
 
   return (
     <>
-      {/*<ModalView*/}
-      {/*  handleClose={handleClose}*/}
-      {/*  show={show}*/}
-      {/*  title={text}*/}
-      {/*  owner={owner}*/}
-      {/*>*/}
-      {/*  {generateNodes(nodes, text)}*/}
-      {/*  /!*{elems.length > 0 && elems.map((elem) => elem)}*!/*/}
-      {/*  /!*{elems.length === 0 && <h1>There is no results</h1>}*!/*/}
-      {/*</ModalView>*/}
-      {/*<div className="ProfileLink" onClick={() => handleShow()}>*/}
-      {/*  <img src={icon} alt="icon" />*/}
-      {/*</div>*/}
+      <ModalView
+        handleClose={handleClose}
+        show={show}
+        title={text}
+        owner={item.owner}
+      >
+        {loading && <Loader />}
+        {!loading && elems.length > 0 && elems.map((elem) => elem)}
+        {!loading && elems.length === 0 && <h1>There is no results</h1>}
+      </ModalView>
+      <div className="ProfileLink" onClick={() => handleShow(item, text)}>
+        <img src={icon} alt="icon" />
+      </div>
     </>
   );
 };
+
 export default ProfileLink;

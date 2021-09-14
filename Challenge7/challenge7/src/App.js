@@ -51,38 +51,9 @@ function App() {
         } else {
           setSites(Math.ceil(r.data.total_count / per_page));
         }
-        for (let item of r.data.items) {
-          item.following_url = item.following_url.slice(
-            0,
-            item.following_url.indexOf('{')
-          );
-          item.more = {};
 
-          axios
-            .get(item.followers_url, {
-              headers: headersAuth,
-            })
-            .then((r) => (item.more.followers = r.data));
-
-          axios
-            .get(item.following_url, {
-              headers: headersAuth,
-            })
-            .then((r) => (item.more.following = r.data));
-
-          axios
-            .get(item.repos_url, {
-              headers: headersAuth,
-            })
-            .then((r) => (item.more.repos = r.data));
-
-          axios
-            .get(item.url, {
-              headers: headersAuth,
-            })
-            .then((r) => (item.more.overview = r.data));
-        }
         setSearchResult(r.data.items);
+        setLoadingResult(false);
       })
       .catch((err) => {
         console.log(err);
@@ -169,7 +140,6 @@ function App() {
           setAuthLoading(false);
         });
     }
-    console.log(auth);
   }, [auth]);
 
   const onFailure = (response) => {
