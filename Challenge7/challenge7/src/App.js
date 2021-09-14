@@ -166,7 +166,7 @@ function App() {
             )}
           </h1>
           <Switch clickHandler={() => themeSetter()}>
-            <p>{theme === 'light' ? 'Dark Theme' : 'Light Theme'}</p>
+            <p>{theme === 'dark' ? 'Dark Theme' : 'Light Theme'}</p>
           </Switch>
         </Header>
 

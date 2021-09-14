@@ -112,7 +112,7 @@ const ProfileLink = ({ text, icon, item }) => {
   };
 
   React.useEffect(() => {
-    console.log(item);
+    console.dir(item);
   }, [item]);
 
   return (
@@ -121,7 +121,7 @@ const ProfileLink = ({ text, icon, item }) => {
         handleClose={handleClose}
         show={show}
         title={text}
-        owner={item.owner}
+        owner={item.login}
       >
         {loading && <Loader />}
         {!loading && elems.length > 0 && elems.map((elem) => elem)}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './InformationCard.sass';
 
 const InformationCard = ({
   avatar_url,
@@ -18,10 +19,10 @@ const InformationCard = ({
       <div>{company}</div>
       <div>{created_at}</div>
       <div>{email}</div>
-      <div>{followers}</div>
-      <div>{following}</div>
-      <div>{html_url}</div>
-      <div>{public_repos}</div>
+      <div>Followers: {followers}</div>
+      <div>Following: {following}</div>
+      <a href={html_url}>Go to profile</a>
+      <div>Public repos:{public_repos}</div>
     </div>
   );
 };
