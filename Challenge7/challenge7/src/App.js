@@ -22,6 +22,7 @@ import {
 } from './Hooks/useSemiPersistentState';
 import GitHubLogin from 'react-github-login';
 import AuthLoader from './Utils/AuthLoader/AuthLoader';
+import Logout from './Utils/Logout/Logout';
 
 function App() {
   //SEARCH ===========================================================
@@ -147,6 +148,13 @@ function App() {
     setAuthLoading(false);
   };
 
+  const removeToken = () => {
+    setSearchTerm('');
+    setSearchResult([]);
+    setSites(0);
+    setToken(null);
+  };
+
   return (
     <div className="appWrapper">
       <div className="App">
@@ -154,15 +162,19 @@ function App() {
           <h1>
             devfinder
             {token ? (
-              <p>You are Authenticated</p>
+              <Logout customAction={() => removeToken()} />
             ) : (
-              <GitHubLogin
-                clientId={process.env.REACT_APP_CLIENT_ID}
-                redirectUri={process.env.REACT_APP_REDIRECT_URI}
-                onSuccess={onSuccess}
-                onFailure={onFailure}
-                onRequest={() => setAuthLoading(true)}
-              />
+              <div className="blur">
+                <h1>Welcom to devfinder</h1>
+                <GitHubLogin
+                  clientId={process.env.REACT_APP_CLIENT_ID}
+                  redirectUri={process.env.REACT_APP_REDIRECT_URI}
+                  onSuccess={onSuccess}
+                  onFailure={onFailure}
+                  onRequest={() => setAuthLoading(true)}
+                  className={'LoginButton'}
+                />
+              </div>
             )}
           </h1>
           <Switch clickHandler={() => themeSetter()}>
