@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './Logout.sass';
 
-const Logout = ({ customAction }) => {
+const ButtonCustom = ({ customAction = () => {}, title = 'Logout' }) => {
   return (
     <div className="Logout" onClick={() => customAction()}>
-      Logout
+      {title}
     </div>
   );
 };
 
-export default Logout;
+export default ButtonCustom;

@@ -22,7 +22,7 @@ import {
 } from './Hooks/useSemiPersistentState';
 import GitHubLogin from 'react-github-login';
 import AuthLoader from './Utils/AuthLoader/AuthLoader';
-import Logout from './Utils/Logout/Logout';
+import ButtonCustom from './Utils/Logout/ButtonCustom';
 
 function App() {
   //SEARCH ===========================================================
@@ -162,7 +162,7 @@ function App() {
           <h1>
             devfinder
             {token ? (
-              <Logout customAction={() => removeToken()} />
+              <ButtonCustom customAction={() => removeToken()} />
             ) : (
               <div className="blur">
                 <h1>Welcom to devfinder</h1>

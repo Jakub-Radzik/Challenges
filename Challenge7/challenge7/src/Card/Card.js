@@ -37,14 +37,14 @@ const Card = ({ item, iconSet }) => {
               />
 
               <ProfileLink
-                icon={iconSet && iconSet.repo}
-                text={Names.REPOSITORIES}
+                icon={iconSet && iconSet.overview}
+                text={Names.INFORMATION}
                 item={item}
               />
 
               <ProfileLink
-                icon={iconSet && iconSet.overview}
-                text={Names.INFORMATION}
+                icon={iconSet && iconSet.repo}
+                text={Names.REPOSITORIES}
                 item={item}
               />
             </div>

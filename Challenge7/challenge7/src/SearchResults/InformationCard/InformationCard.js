@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './InformationCard.sass';
+import ButtonCustom from '../../Utils/Logout/ButtonCustom';
 
 const InformationCard = ({
   avatar_url,
@@ -15,14 +16,31 @@ const InformationCard = ({
   return (
     <div className="InformationCard">
       <img src={avatar_url} alt="avatar url" />
-      <div>{bio}</div>
-      <div>{company}</div>
-      <div>{created_at}</div>
-      <div>{email}</div>
-      <div>Followers: {followers}</div>
-      <div>Following: {following}</div>
-      <a href={html_url}>Go to profile</a>
-      <div>Public repos:{public_repos}</div>
+      <div className={'info'}>
+        <div>{bio && 'Bio: ' + bio}</div>
+        <div>{company && 'Company: ' + company}</div>
+        <div>Account created at:</div>
+        <div>
+          <strong>
+            {created_at.slice(0, 10) + ' ' + created_at.slice(11, 19)}
+          </strong>
+        </div>
+        <div>{email && 'Email: ' + email}</div>
+        <div>
+          <div>
+            Followers: <strong>{followers}</strong>
+          </div>
+          <div>
+            Following: <strong>{following}</strong>
+          </div>
+          <div>
+            Public repos: <strong>{public_repos}</strong>
+          </div>
+        </div>
+        <a href={html_url}>
+          <ButtonCustom title={'Go to profile'} />
+        </a>
+      </div>
     </div>
   );
 };
