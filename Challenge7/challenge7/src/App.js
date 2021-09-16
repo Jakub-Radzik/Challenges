@@ -177,9 +177,10 @@ function App() {
               </div>
             )}
           </h1>
-          <Switch clickHandler={() => themeSetter()}>
-            <p>{theme === 'dark' ? 'Dark Theme' : 'Light Theme'}</p>
-          </Switch>
+          <ButtonCustom
+            title={theme === 'dark' ? 'Dark Theme' : 'Light Theme'}
+            customAction={() => themeSetter()}
+          />
         </Header>
 
         {authLoading && <AuthLoader />}

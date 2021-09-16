@@ -3,12 +3,12 @@
 
 /*THEME*/
 html[data-theme='light'] {
-    --app-bg: #4cc9f0;
-    --header-bg: #faedcd;
-    --header-accent: #abced9;
-    --header-accent2: #c6c9ce;
-    --card-bg: #faedcd;
-    --font: #023047
+    --app-bg: #F6F4D2;
+    --header-bg: #A44A3F;
+    --header-accent: #CBDFBD;
+    --header-accent2: #a0e6f6;
+    --card-bg: #CBDFBD;
+    --font: #3d405b
 }
 
 html[data-theme='dark'] {

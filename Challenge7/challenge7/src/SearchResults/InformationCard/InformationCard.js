@@ -22,7 +22,13 @@ const InformationCard = ({
         <div>Account created at:</div>
         <div>
           <strong>
-            {created_at.slice(0, 10) + ' ' + created_at.slice(11, 19)}
+            {created_at.slice(8, 10) +
+              '-' +
+              created_at.slice(5, 7) +
+              '-' +
+              created_at.slice(0, 4) +
+              ' ' +
+              created_at.slice(11, 19)}
           </strong>
         </div>
         <div>{email && 'Email: ' + email}</div>
