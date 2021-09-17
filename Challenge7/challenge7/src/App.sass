@@ -46,7 +46,9 @@
   z-index: 2000
   .LoginButton
     margin: 200px 0 0 0
+    padding: 30px
     border: 1px solid var(--app-bg)
+    opacity: 0.6
     background: var(--header-accent2)
     color: var(--font)
     font-size: 1.2em
@@ -54,8 +56,11 @@
     transition: 0.5s
     &:hover
       transform: scale(1.1)
+      background: var(--header-accent1)
   h1
     color: var(--font2)
+    margin: 0 0 50px 0
+
 @media(max-width: 600px)
   .tools
     display: flex

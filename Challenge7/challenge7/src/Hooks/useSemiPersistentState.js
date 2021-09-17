@@ -12,6 +12,18 @@ export const useSemiPersistentState = (key, initialState) => {
   return [value, setValue];
 };
 
+export const useSemiPersistentSessionState = (key, initialState) => {
+  const [value, setValue] = React.useState(
+    sessionStorage.getItem(key) || initialState
+  );
+
+  React.useEffect(() => {
+    sessionStorage.setItem(key, value);
+  }, [value, key]);
+
+  return [value, setValue];
+};
+
 export const useSemiPersistentStateTheme = (key, initialState) => {
   const [value, setValue] = React.useState(
     localStorage.getItem(key) || initialState

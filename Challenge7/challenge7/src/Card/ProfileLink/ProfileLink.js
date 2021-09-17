@@ -97,7 +97,7 @@ const ProfileLink = ({ text, icon, item }) => {
     axios
       .get(getUrlFromItem(item, text), {
         headers: {
-          Authorization: `token ${localStorage.getItem('token')}`,
+          Authorization: `token ${sessionStorage.getItem('token')}`,
         },
       })
       .then((r) => {

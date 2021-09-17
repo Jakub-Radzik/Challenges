@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './InformationCard.sass';
-import ButtonCustom from '../../Utils/Logout/ButtonCustom';
+import ButtonCustom from '../../Utils/ButtonCustom/ButtonCustom';
 
 const InformationCard = ({
   avatar_url,
