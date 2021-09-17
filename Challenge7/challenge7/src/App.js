@@ -23,6 +23,7 @@ import {
 import GitHubLogin from 'react-github-login';
 import AuthLoader from './Utils/AuthLoader/AuthLoader';
 import ButtonCustom from './Utils/Logout/ButtonCustom';
+import AppWrapper from './Components/AppWrapper/AppWrapper';
 
 function App() {
   //SEARCH ===========================================================
@@ -156,7 +157,7 @@ function App() {
   };
 
   return (
-    <div className="appWrapper">
+    <AppWrapper>
       <div className="App">
         <Header>
           <h1>
@@ -164,17 +165,41 @@ function App() {
             {token ? (
               <ButtonCustom customAction={() => removeToken()} />
             ) : (
-              <div className="blur">
-                <h1>Welcom to devfinder</h1>
-                <GitHubLogin
-                  clientId={process.env.REACT_APP_CLIENT_ID}
-                  redirectUri={process.env.REACT_APP_REDIRECT_URI}
-                  onSuccess={onSuccess}
-                  onFailure={onFailure}
-                  onRequest={() => setAuthLoading(true)}
-                  className={'LoginButton'}
-                />
-              </div>
+              <>
+                <div className="background">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div className="blur">
+                  <h1>Welcom to devfinder</h1>
+                  <GitHubLogin
+                    clientId={process.env.REACT_APP_CLIENT_ID}
+                    redirectUri={process.env.REACT_APP_REDIRECT_URI}
+                    onSuccess={onSuccess}
+                    onFailure={onFailure}
+                    onRequest={() => setAuthLoading(true)}
+                    className={'LoginButton'}
+                  />
+                </div>
+              </>
             )}
           </h1>
           <ButtonCustom
@@ -220,7 +245,7 @@ function App() {
             })}
         </div>
       </div>
-    </div>
+    </AppWrapper>
   );
 }
 

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './ProfileLink.sass';
 import ModalView from '../../Modal/ModalView';
-import axios from 'axios';
 import { Names } from '../../Utils/Names';
 import FollowerCard from '../../SearchResults/FollowerCard/FollowerCard';
 import RepoCard from '../../SearchResults/RepoCard/RepoCard';
