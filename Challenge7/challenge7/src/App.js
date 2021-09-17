@@ -26,6 +26,7 @@ import GitHubLogin from 'react-github-login';
 import AuthLoader from './Utils/AuthLoader/AuthLoader';
 import ButtonCustom from './Utils/ButtonCustom/ButtonCustom';
 import AppWrapper from './Components/AppWrapper/AppWrapper';
+import Background from './Utils/Background/Background';
 
 function App() {
   //SEARCH ===========================================================
@@ -164,6 +165,7 @@ function App() {
   return (
     <AppWrapper>
       <div className="App">
+        {/*==========================================HEADER==========================================*/}
         <Header>
           <h1>
             devfinder
@@ -174,28 +176,7 @@ function App() {
               />
             ) : (
               <>
-                <div className="background">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
+                <Background />
                 <div className="blur">
                   <h1>Welcom to devfinder</h1>
                   <GitHubLogin
@@ -216,8 +197,10 @@ function App() {
           />
         </Header>
 
+        {/*========================================AUTH LOADER========================================*/}
         {authLoading && <AuthLoader />}
 
+        {/*===========================================TOOLS===========================================*/}
         {token ? (
           <div className="tools">
             <Search
@@ -242,6 +225,7 @@ function App() {
           <div />
         )}
 
+        {/*==========================================CONTENT==========================================*/}
         <div>
           {loadingResult && <Loader />}
           {errorResult && <Error />}
