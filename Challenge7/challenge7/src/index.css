@@ -9,7 +9,7 @@ html[data-theme='light'] {
     --header-accent2: #a0e6f6;
     --card-bg: #CBDFBD;
     --font: #3d405b;
-    --font2: #becfd9;
+    --font2: #1b2023;
 }
 
 html[data-theme='dark'] {
@@ -84,7 +84,6 @@ ul {
     left: 0;
     background: var(--app-bg);
     overflow: hidden;
-    z-index: -1;
 }
 
 .background span {
