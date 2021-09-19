@@ -7,28 +7,36 @@ import Loader from './Components/Loader/Loader';
 import Error from './Components/Error/Error';
 import Header from './Components/Header/Header';
 import ReactPaginate from 'react-paginate';
-import Switch from './Components/Switch/Switch';
-import followersLight from './img/followers-white.svg';
-import followingLight from './img/observation-white.svg';
-import overviewLight from './img/file-white.svg';
-import repoLight from './img/folders-white.svg';
-import followersDark from './img/followers.svg';
-import followingDark from './img/observation.svg';
-import overviewDark from './img/file.svg';
-import repoDark from './img/folders.svg';
 import './Components/ButtonCustom/ButtonCustom.sass';
 import {
   useSemiPersistentSessionState,
   useSemiPersistentState,
-  useSemiPersistentStateTheme,
 } from './Hooks/useSemiPersistentState';
 import GitHubLogin from 'react-github-login';
 import AuthLoader from './Components/AuthLoader/AuthLoader';
-import ButtonCustom from './Components/ButtonCustom/ButtonCustom';
 import AppWrapper from './Components/AppWrapper/AppWrapper';
+import { useDispatch, useSelector } from 'react-redux';
+import { setDarkTheme, setLightTheme } from './Redux/Theme/themeSlice';
+import { DARK, LIGHT, THEME_KEY } from './Redux/Theme/themeStateItems';
+import ButtonCustom from './Components/ButtonCustom/ButtonCustom';
 import Background from './Components/Background/Background';
 
 function App() {
+  const dispatch = useDispatch();
+  const themeSelector = useSelector((state) => state.theme);
+
+  const themeSetter = () => {
+    themeSelector.theme === LIGHT
+      ? dispatch(setDarkTheme())
+      : dispatch(setLightTheme());
+  };
+
+  React.useEffect(() => {
+    localStorage.getItem(THEME_KEY) === LIGHT
+      ? dispatch(setLightTheme())
+      : dispatch(setDarkTheme());
+  }, []);
+
   //SEARCH ===========================================================
   const [searchTerm, setSearchTerm] = useSemiPersistentState('searchTerm', '');
 
@@ -78,32 +86,6 @@ function App() {
   const [sites, setSites] = React.useState(0);
 
   //SEARCH ===========================================================
-  //THEME ENGINE ===========================================================
-
-  const [theme, setTheme] = useSemiPersistentStateTheme('theme', 'light');
-  const icons = {
-    dark: {
-      followers: followersDark,
-      following: followingDark,
-      repo: repoDark,
-      overview: overviewDark,
-    },
-    light: {
-      followers: followersLight,
-      following: followingLight,
-      repo: repoLight,
-      overview: overviewLight,
-    },
-  };
-  const themeSetter = () => {
-    document.documentElement.setAttribute(
-      'data-theme',
-      theme === 'light' ? 'dark' : 'light'
-    );
-    setTheme(theme === 'light' ? 'dark' : 'light');
-  };
-
-  //THEME ENGINE ===========================================================
 
   const authInitial = {
     code: null,
@@ -154,7 +136,6 @@ function App() {
     console.error(response);
     setAuthLoading(false);
   };
-
   const removeToken = () => {
     setSearchTerm('');
     setSearchResult([]);
@@ -192,14 +173,13 @@ function App() {
             )}
           </h1>
           <ButtonCustom
-            title={theme === 'dark' ? 'Dark Theme' : 'Light Theme'}
+            title={themeSelector.nameNext}
             customAction={() => themeSetter()}
           />
         </Header>
 
         {/*========================================AUTH LOADER========================================*/}
         {authLoading && <AuthLoader />}
-
         {/*===========================================TOOLS===========================================*/}
         {token ? (
           <div className="tools">
@@ -233,7 +213,9 @@ function App() {
             !loadingResult &&
             !errorResult &&
             searchResult.map((item, index) => {
-              return <Card item={item} key={index} iconSet={icons[theme]} />;
+              return (
+                <Card item={item} key={index} iconSet={themeSelector.iconSet} />
+              );
             })}
         </div>
       </div>

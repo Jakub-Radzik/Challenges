@@ -6,7 +6,7 @@ import followersReducer from './Followers/followersReducer';
 import followingReducer from './Following/followingReducer';
 import repositoriesReducer from './Repositories/repositoriesReducer';
 import overviewReducer from './Overview/overviewReducer';
-import { themeReducer } from './Theme/themeReducer';
+import themeReducer from './Theme/themeSlice';
 
 let rootReducer = combineReducers({
   userList: userListReducer,
