@@ -6,7 +6,7 @@ import FollowerCard from '../../SearchResults/FollowerCard/FollowerCard';
 import RepoCard from '../../SearchResults/RepoCard/RepoCard';
 import InformationCard from '../../SearchResults/InformationCard/InformationCard';
 import axios from 'axios';
-import Loader from '../../Utils/Loader/Loader';
+import Loader from '../../Components/Loader/Loader';
 
 const generateNodes = (data, text) => {
   let elemList = [];

@@ -3,8 +3,8 @@ import Search from './Search/Search';
 import React from 'react';
 import axios from 'axios';
 import Card from './Card/Card';
-import Loader from './Utils/Loader/Loader';
-import Error from './Utils/Error/Error';
+import Loader from './Components/Loader/Loader';
+import Error from './Components/Error/Error';
 import Header from './Components/Header/Header';
 import ReactPaginate from 'react-paginate';
 import Switch from './Components/Switch/Switch';
@@ -16,17 +16,17 @@ import followersDark from './img/followers.svg';
 import followingDark from './img/observation.svg';
 import overviewDark from './img/file.svg';
 import repoDark from './img/folders.svg';
-import './Utils/ButtonCustom/ButtonCustom.sass';
+import './Components/ButtonCustom/ButtonCustom.sass';
 import {
   useSemiPersistentSessionState,
   useSemiPersistentState,
   useSemiPersistentStateTheme,
 } from './Hooks/useSemiPersistentState';
 import GitHubLogin from 'react-github-login';
-import AuthLoader from './Utils/AuthLoader/AuthLoader';
-import ButtonCustom from './Utils/ButtonCustom/ButtonCustom';
+import AuthLoader from './Components/AuthLoader/AuthLoader';
+import ButtonCustom from './Components/ButtonCustom/ButtonCustom';
 import AppWrapper from './Components/AppWrapper/AppWrapper';
-import Background from './Utils/Background/Background';
+import Background from './Components/Background/Background';
 
 function App() {
   //SEARCH ===========================================================

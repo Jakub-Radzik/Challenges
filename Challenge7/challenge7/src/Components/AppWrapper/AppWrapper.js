@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './AppWrapper.sass';
-import Background from '../../Utils/Background/Background';
+import Background from '../Background/Background';
 
 const AppWrapper = ({ children }) => {
   return (

@@ -6,6 +6,7 @@ import followersReducer from './Followers/followersReducer';
 import followingReducer from './Following/followingReducer';
 import repositoriesReducer from './Repositories/repositoriesReducer';
 import overviewReducer from './Overview/overviewReducer';
+import { themeReducer } from './Theme/themeReducer';
 
 let rootReducer = combineReducers({
   userList: userListReducer,
@@ -13,6 +14,7 @@ let rootReducer = combineReducers({
   following: followingReducer,
   repos: repositoriesReducer,
   overview: overviewReducer,
+  theme: themeReducer, //implemented
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
