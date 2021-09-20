@@ -1,4 +1,5 @@
 import './App.sass';
+import './Styles/Pagination.sass';
 import Search from './Search/Search';
 import React from 'react';
 import axios from 'axios';
@@ -181,7 +182,7 @@ function App() {
         {/*========================================AUTH LOADER========================================*/}
         {authLoading && <AuthLoader />}
         {/*===========================================TOOLS===========================================*/}
-        {token ? (
+        {token && (
           <div className="tools">
             <Search
               placeholder={'Search GitHub username...'}
@@ -195,16 +196,21 @@ function App() {
             {sites > 1 && (
               <ReactPaginate
                 pageCount={sites}
-                pageRangeDisplayed={3}
+                pageRangeDisplayed={5}
                 marginPagesDisplayed={1}
                 onPageChange={(page) => pageControl(page.selected + 1)}
+                activeClassName={'activePage'}
+                previousClassName={'previous'}
+                nextClassName={'next'}
+                pageClassName={'page'}
+                containerClassName={'pagination'}
+                pageLinkClassName={'link'}
+                previousLinkClassName={'previousLink'}
+                nextLinkClassName={'nextLink'}
               />
             )}
           </div>
-        ) : (
-          <div />
         )}
-
         {/*==========================================CONTENT==========================================*/}
         <div>
           {loadingResult && <Loader />}

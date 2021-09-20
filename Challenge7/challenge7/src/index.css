@@ -10,6 +10,12 @@ html[data-theme='light'] {
     --card-bg: #CBDFBD;
     --font: #3d405b;
     --font2: #1b2023;
+    /*pagination*/
+    --previous: #CBDFBD;
+    --next: #CBDFBD;
+    --page: #F6F4D2;
+    --active: #A44A3F;
+    --page-hover: #ad7169;
 }
 
 html[data-theme='dark'] {
@@ -20,6 +26,12 @@ html[data-theme='dark'] {
     --card-bg: #003566;
     --font: #becfd9;
     --font2: #becfd9;
+    /*pagination*/
+    --previous: #003566;
+    --next: #003566;
+    --page: #184eba;
+    --active: #001d3d;
+    --page-hover: #5273b4;
 }
 /*THEME*/
 

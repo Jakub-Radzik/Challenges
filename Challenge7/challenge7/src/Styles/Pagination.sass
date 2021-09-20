@@ -1,0 +1,70 @@
+%commonLinkStyles
+  width: 100%
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+  transition-duration: 0.2s
+  color: var(--font) !important
+
+%pageHover
+  color: inherit
+  background: var(--page-hover)
+
+ul
+  display: flex
+  flex-direction: row
+  list-style-type: none
+  height: 40px
+  border-radius: 20px
+  li
+    width: 100%
+    height: 40px
+    display: flex
+    justify-content: center
+    align-items: center
+    &:not(li:first-child)
+      border-left: 2px solid var(--header-accent2)
+      width: 100%
+
+.pagination
+  background: var(--page)
+  position: fixed
+  bottom: 0
+  z-index: 10
+  width: 90%
+  color: var(--font) !important
+.activePage
+  background: var(--active)
+.previous
+  background: var(--previous)
+  border-radius: 20px 0 0 0
+.next
+  background: var(--next)
+  border-radius: 0 20px 0 0
+.link
+  @extend %commonLinkStyles
+  &:hover
+    @extend %pageHover
+
+.nextLink
+  @extend %commonLinkStyles
+  border-radius: 0 20px 0 0
+  width: 120px
+  &:hover
+    @extend %pageHover
+
+.previousLink
+  @extend %commonLinkStyles
+  border-radius: 20px 0 0 0
+  width: 120px
+  &:hover
+    @extend %pageHover
+
+@media(max-width: 600px)
+  .pagination, .previous, .next, .nextLink, .previousLink
+    border-radius: 0
+  .nextLink, .previous
+    width: 60px
+  .pagination
+    border-top: 2px solid var(--header-accent2)
