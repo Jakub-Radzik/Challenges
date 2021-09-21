@@ -9,29 +9,28 @@ import Error from './Components/Error/Error';
 import Header from './Components/Header/Header';
 import ReactPaginate from 'react-paginate';
 import './Components/ButtonCustom/ButtonCustom.sass';
-import {
-  useSemiPersistentSessionState,
-  useSemiPersistentState,
-} from './Hooks/useSemiPersistentState';
+import { useSemiPersistentSessionState } from './Hooks/useSemiPersistentState';
 import GitHubLogin from 'react-github-login';
 import AuthLoader from './Components/AuthLoader/AuthLoader';
 import AppWrapper from './Components/AppWrapper/AppWrapper';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDarkTheme, setLightTheme } from './Redux/Theme/themeSlice';
-import { DARK, LIGHT, THEME_KEY } from './Redux/Theme/themeStateItems';
+import { LIGHT, THEME_KEY } from './Redux/Theme/themeStateItems';
 import ButtonCustom from './Components/ButtonCustom/ButtonCustom';
 import Background from './Components/Background/Background';
+import { setSearchTermRedux } from './Redux/SearchTerm/searchTermSlice';
 
 function App() {
+  //REDUX STATE MANAGEMENT ===========================================================
   const dispatch = useDispatch();
-  const themeSelector = useSelector((state) => state.theme);
 
+  //THEME ============================================================================
+  const themeSelector = useSelector((state) => state.theme);
   const themeSetter = () => {
     themeSelector.theme === LIGHT
       ? dispatch(setDarkTheme())
       : dispatch(setLightTheme());
   };
-
   React.useEffect(() => {
     localStorage.getItem(THEME_KEY) === LIGHT
       ? dispatch(setLightTheme())
@@ -39,22 +38,23 @@ function App() {
   }, []);
 
   //SEARCH ===========================================================
-  const [searchTerm, setSearchTerm] = useSemiPersistentState('searchTerm', '');
+  const searchTermSelector = useSelector((state) => state.searchTerm);
+  const searchTermChangeHandler = (event) => {
+    dispatch(setSearchTermRedux(event.target.value));
+  };
+
+  //SEARCH ===========================================================
 
   const [searchResult, setSearchResult] = React.useState([]);
   const [loadingResult, setLoadingResult] = React.useState(false);
   const [errorResult, setErrorResult] = React.useState(false);
-
-  const searchTermChangeHandler = (event) => {
-    setSearchTerm(event.target.value);
-  };
 
   const handlerClick = (page = 1) => {
     setLoadingResult(true);
     const per_page = 10;
     axios
       .get(
-        `https://api.github.com/search/users?q=${searchTerm}&page=${page}&per_page=${per_page}`,
+        `https://api.github.com/search/users?q=${searchTermSelector.searchTerm}&page=${page}&per_page=${per_page}`,
         {
           headers: headersAuth,
         }
@@ -138,7 +138,7 @@ function App() {
     setAuthLoading(false);
   };
   const removeToken = () => {
-    setSearchTerm('');
+    dispatch(setSearchTermRedux(''));
     setSearchResult([]);
     setSites(0);
     setToken('');
@@ -186,7 +186,7 @@ function App() {
           <div className="tools">
             <Search
               placeholder={'Search GitHub username...'}
-              searchTerm={searchTerm}
+              searchTerm={searchTermSelector.searchTerm}
               searchTermHandler={searchTermChangeHandler}
               submitHandler={() => handlerClick()}
               isAutoFocus={true}
